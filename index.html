@@ -1,1229 +1,1089 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Over Ban - Sua TV Premium | Canais HD, Filmes e Séries Sem Travar!</title>
-  <meta name="description" content="Assine Over Ban e tenha a melhor TV Premium com canais HD/Full HD, filmes, séries e suporte 24h. Experiência IPTV sem travamentos! Teste Grátis!">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    :root {
-      --primary-color: #f7c600; /* Amarelo Vibrante */
-      --secondary-color: #0088cc; /* Azul para Telegram/Suporte */
-      --dark-bg: #121212;
-      --light-bg: #1e1e1e;
-      --text-color: white;
-      --highlight-text: #00ffea; /* Ciano Neon para destaques */
-      --gradient-start: #000000;
-      --gradient-end: #1a1a1a;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    body {
-      margin: 0;
-      font-family: 'Roboto', sans-serif;
-      background: linear-gradient(180deg, var(--dark-bg) 0%, var(--gradient-end) 100%);
-      color: var(--text-color);
-      line-height: 1.6;
-      overflow-x: hidden; /* Evita scroll horizontal */
-    }
+<title>IPTV BRASIL VIP | PREMIUM STREAMING 4K</title>
+<meta name="description" content="Assine a melhor IPTV do Brasil. Canais 4K, Filmes e Séries sem travamentos com tecnologia Anti-Freeze 3.0. Teste Grátis agora!">
+<link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/716/716429.png">
 
-    /* --- Header e Navegação --- */
-    header {
-      background-color: #000;
-      padding: 20px;
-      text-align: center;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
-      z-index: 100;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.8em;
-      color: var(--primary-color);
-      letter-spacing: 2px;
-      text-shadow: 0 0 10px rgba(247, 198, 0, 0.5);
-    }
-    nav {
-      margin-top: 18px;
-    }
-    nav a {
-      color: var(--primary-color);
-      text-decoration: none;
-      margin: 0 22px;
-      font-weight: 700;
-      font-size: 1.15em;
-      transition: color 0.3s ease, transform 0.3s ease;
-      position: relative;
-    }
-    nav a::after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 3px;
-      background: var(--highlight-text);
-      bottom: -5px;
-      left: 50%;
-      transform: translateX(-50%);
-      transition: width 0.3s ease;
-    }
-    nav a:hover {
-      color: white;
-      transform: translateY(-2px);
-    }
-    nav a:hover::after {
-      width: 100%;
-    }
+<meta property="og:title" content="IPTV BRASIL VIP - O Melhor Streaming">
+<meta property="og:description" content="Canais, Filmes e Séries em 4K. Atendimento VIP e liberação imediata.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1593784991095-a205069470b6?auto=format&fit=crop&q=80&w=500">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#00ff99">
 
-    /* --- Seção Hero --- */
-    .hero {
-      padding: 100px 20px;
-      text-align: center;
-      background: linear-gradient(180deg, var(--dark-bg) 0%, #000000 100%);
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('https://i.postimg.cc/yY0L94vD/background-pattern-subtle.png') repeat; /* Imagem de fundo sutil real */
-      background-size: 200px; /* Ajuste o tamanho do padrão conforme desejar */
-      opacity: 0.08; /* Ajuste a opacidade para ser mais sutil */
-      z-index: 0;
-    }
-    .hero > * {
-      position: relative;
-      z-index: 1;
-    }
-    .hero h2 {
-      font-size: 3.5em;
-      margin-bottom: 25px;
-      color: var(--primary-color);
-      text-shadow: 0 0 15px rgba(247, 198, 0, 0.7);
-      animation: fadeInDown 1s ease-out;
-    }
-    .hero p {
-      font-size: 1.4em;
-      margin-bottom: 40px;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
-      color: #ddd;
-      animation: fadeInUp 1s ease-out 0.3s forwards;
-      opacity: 0;
-    }
-    .btn {
-      background-color: var(--primary-color);
-      color: black;
-      padding: 18px 40px;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 50px;
-      font-size: 1.3em;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      border: none;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin: 10px;
-      display: inline-block;
-      animation: bounceIn 1s ease-out 0.6s forwards;
-      opacity: 0;
-    }
-    .btn:hover {
-      background-color: #e6b400;
-      box-shadow: 0 8px 25px rgba(247, 198, 0, 0.6);
-      transform: translateY(-5px) scale(1.02);
-    }
-    .btn.secondary-btn {
-      background-color: var(--secondary-color);
-      color: white;
-    }
-    .btn.secondary-btn:hover {
-      background-color: #007bb5;
-      box-shadow: 0 8px 25px rgba(0, 136, 204, 0.6);
-    }
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
 
-    /* --- Seções Gerais e Cards --- */
-    section {
-      padding: 80px 20px;
-      text-align: center;
-      max-width: 1300px;
-      margin: 0 auto;
-    }
-    section h2 {
-      font-size: 2.8em;
-      color: var(--primary-color);
-      margin-bottom: 50px;
-      position: relative;
-      padding-bottom: 10px;
-    }
-    section h2::after {
-      content: '';
-      position: absolute;
-      width: 80px;
-      height: 4px;
-      background: var(--highlight-text);
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-    }
+<style>
+:root {
+  --primary: #00ff99;
+  --secondary: #00ccff;
+  --bg-dark: #070708;
+  --card-bg: #121214;
+  --text-gray: #a0a0a0;
+  --system-msg: #555;
+  --menu-bg: rgba(14, 14, 15, 0.98);
+  --danger: #ff4444;
+  --glow: rgba(0, 255, 153, 0.15);
+}
 
-    .card-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-      margin-top: 40px;
-    }
+/* Reset e Trava de Interação */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
 
-    .plan-card, .contact-card, .vantagens-card, .chat-card, .telegram-card, .depoimentos-card, .faq-card, .how-it-works-card {
-      background-color: var(--light-bg);
-      border-radius: 15px;
-      padding: 35px;
-      flex: 1;
-      min-width: 300px;
-      max-width: 450px;
-      box-shadow: 0 8px 30px rgba(247, 198, 0, 0.15);
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-      position: relative;
-      overflow: hidden;
-      border: 1px solid rgba(247, 198, 0, 0.1);
-    }
-    .plan-card:hover, .contact-card:hover, .vantagens-card:hover, .chat-card:hover, .telegram-card:hover, .depoimentos-card:hover, .faq-card:hover, .how-it-works-card:hover {
-      transform: translateY(-8px) scale(1.01);
-      box-shadow: 0 15px 45px rgba(247, 198, 0, 0.3);
-      border-color: var(--primary-color);
-    }
-    .plan-card.highlighted {
-      border: 3px solid var(--highlight-text);
-      box-shadow: 0 10px 40px rgba(0, 255, 234, 0.4);
-    }
-    .plan-card.highlighted::before {
-      content: 'MAIS POPULAR!';
-      position: absolute;
-      top: 0;
-      right: 0;
-      background-color: var(--highlight-text);
-      color: var(--dark-bg);
-      padding: 5px 15px;
-      border-bottom-left-radius: 15px;
-      font-weight: bold;
-      font-size: 0.9em;
-      transform: rotate(5deg) translateY(-10px) translateX(10px);
-    }
+body {
+  background: var(--bg-dark);
+  color: #fff;
+  line-height: 1.6;
+  overflow-x: hidden;
+  user-select: none;
+  scroll-behavior: smooth;
+}
 
+/* NAVBAR */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: rgba(0,0,0,0.95);
+  backdrop-filter: blur(15px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid #1a1a1a;
+}
 
-    /* --- Planos --- */
-    .plan-item {
-      background-color: #2a2a2a;
-      padding: 25px;
-      border-radius: 10px;
-      margin-bottom: 20px;
-      text-align: left;
-      border-left: 5px solid var(--primary-color);
-      transition: background-color 0.3s ease;
-    }
-    .plan-item:hover {
-      background-color: #333;
-    }
-    .plan-item h3 {
-      color: var(--primary-color);
-      font-size: 1.8em;
-      margin-top: 0;
-      margin-bottom: 10px;
-    }
-    .plan-item p {
-      font-size: 1.2em;
-      margin-bottom: 8px;
-    }
-    .plan-item .price {
-      font-size: 2.2em;
-      font-weight: bold;
-      color: var(--highlight-text);
-      margin-top: 15px;
-    }
-    .plan-item .original-price {
-      text-decoration: line-through;
-      color: #aaa;
-      font-size: 0.9em;
-      margin-left: 10px;
-    }
-    .plan-item .discount-info {
-      color: var(--primary-color);
-      font-weight: bold;
-      margin-top: 5px;
-    }
-    #planosLista .btn {
-      width: 100%;
-      margin-top: 20px;
-      padding: 15px;
-    }
+.logo { 
+  font-weight: 900; 
+  color: var(--primary); 
+  letter-spacing: -1.5px; 
+  font-size: 1.4em;
+  text-shadow: 0 0 15px rgba(0, 255, 153, 0.5);
+}
 
+.menu-icon { 
+  cursor: pointer; 
+  background: rgba(255,255,255,0.05);
+  padding: 8px;
+  border-radius: 12px;
+  border: 1px solid #222;
+  transition: 0.3s;
+}
 
-    /* --- Vantagens --- */
-    .vantagens-card ul {
-      list-style: none;
-      padding: 0;
-      text-align: left;
-      margin-top: 30px;
-    }
-    .vantagens-card li {
-      font-size: 1.2em;
-      margin-bottom: 20px;
-      display: flex;
-      align-items: flex-start; /* Alinha o ícone no topo do texto */
-      color: #ddd;
-    }
-    .vantagens-card li i {
-      color: var(--primary-color);
-      margin-right: 20px;
-      font-size: 1.6em;
-      min-width: 40px;
-      text-align: center;
-      flex-shrink: 0; /* Impede que o ícone encolha */
-    }
-    .vantagens-card p strong {
-      color: var(--highlight-text);
-      font-size: 1.3em;
-      display: block;
-      margin-top: 30px;
-    }
+/* MENU LATERAL VIP */
+.side-menu {
+  position: fixed;
+  top: 0; right: -100%;
+  width: 320px; height: 100%;
+  background: var(--menu-bg);
+  backdrop-filter: blur(20px);
+  z-index: 1000;
+  padding: 30px 20px;
+  transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  border-left: 1px solid rgba(0, 255, 153, 0.3);
+  box-shadow: -20px 0 50px rgba(0,0,0,0.9);
+  overflow-y: auto;
+}
 
-    /* --- Seção Como Funciona --- */
-    .how-it-works-card {
-      max-width: 800px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .how-it-works-item {
-      display: flex;
-      align-items: center;
-      margin-bottom: 30px;
-      text-align: left;
-      width: 100%;
-      background-color: #2a2a2a;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-      border-left: 5px solid var(--secondary-color);
-    }
-    .how-it-works-item:last-child {
-      margin-bottom: 0;
-    }
-    .how-it-works-item i {
-      font-size: 2.5em;
-      color: var(--highlight-text);
-      margin-right: 25px;
-      flex-shrink: 0;
-      width: 60px; /* Para alinhar bem */
-      text-align: center;
-    }
-    .how-it-works-item div {
-      flex-grow: 1;
-    }
-    .how-it-works-item h3 {
-      margin-top: 0;
-      color: var(--primary-color);
-      font-size: 1.6em;
-      margin-bottom: 8px;
-    }
-    .how-it-works-item p {
-      margin: 0;
-      color: #ccc;
-      font-size: 1.1em;
-    }
+.side-menu.active { right: 0; }
 
+.menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
 
-    /* --- Chat da Comunidade (Simulado) --- */
-    #chat-comunidade .chat-card {
-      max-width: 600px; /* Tornar o card do chat um pouco mais estreito */
-      margin: 0 auto;
-      background-color: #1a1a1a; /* Fundo mais escuro para o chat */
-      border: 1px solid rgba(0, 255, 234, 0.2); /* Borda ciano neon */
-      padding: 30px;
-    }
-    #chat-comunidade h2 {
-        color: var(--highlight-text); /* Título do chat em ciano neon */
-        font-size: 2.2em;
-    }
-    .chat-mensagens {
-      background-color: #0d0d0d; /* Fundo do corpo do chat mais escuro */
-      padding: 20px;
-      border-radius: 10px;
-      height: 350px; /* Altura ajustada para mais mensagens */
-      overflow-y: auto;
-      margin-bottom: 20px;
-      text-align: left;
-      display: flex;
-      flex-direction: column-reverse; /* Mensagens mais novas no topo */
-      border: 1px solid #222;
-      box-shadow: inset 0 0 15px rgba(0,0,0,0.6);
-      position: relative; /* Para o "digitando..." */
-    }
-    .chat-mensagens::-webkit-scrollbar {
-        width: 8px;
-    }
-    .chat-mensagens::-webkit-scrollbar-track {
-        background: #333;
-        border-radius: 10px;
-    }
-    .chat-mensagens::-webkit-scrollbar-thumb {
-        background: var(--primary-color);
-        border-radius: 10px;
-    }
-    .chat-mensagens .msg {
-      margin-bottom: 15px;
-      font-size: 1.05em;
-      word-wrap: break-word;
-      animation: fadeInMsg 0.5s ease-out; /* Animação para novas mensagens */
-    }
-    .msg-voce {
-      color: var(--primary-color);
-      text-align: right;
-    }
-    .msg-voce strong {
-        color: var(--primary-color);
-    }
-    .chat-card form {
-      display: flex;
-      gap: 10px;
-      margin-top: 20px;
-    }
-    .chat-card input[type="text"] {
-      flex-grow: 1;
-      padding: 14px;
-      border-radius: 8px;
-      border: none;
-      background-color: #2a2a2a;
-      color: white;
-      font-size: 1em;
-      border: 1px solid #444;
-    }
-    .chat-card input[type="text"]::placeholder {
-      color: #aaa;
-    }
-    .chat-card button {
-      padding: 14px 28px;
-      border: none;
-      background-color: var(--primary-color);
-      color: black;
-      font-weight: bold;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background-color 0.3s ease, transform 0.2s ease;
-      font-size: 1em;
-    }
-    .chat-card button:hover {
-      background-color: #e6b400;
-      transform: translateY(-1px);
-    }
-    #chat-comunidade .disclaimer {
-        display: block;
-        margin-top: 15px;
-        font-size: 0.9em;
-        color: #888;
-        background-color: #2a2a2a;
-        padding: 10px 15px;
-        border-radius: 8px;
-        border-left: 4px solid var(--secondary-color);
-        text-align: left;
-    }
-    .digitando {
-        position: absolute;
-        bottom: 10px;
-        left: 10px;
-        color: #aaa;
-        font-style: italic;
-        font-size: 0.9em;
-        animation: pulseText 1s infinite;
-        background-color: rgba(0,0,0,0.7);
-        padding: 5px 10px;
-        border-radius: 5px;
-    }
-    @keyframes fadeInMsg {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes pulseText {
-        0% { opacity: 0.6; }
-        50% { opacity: 1; }
-        100% { opacity: 0.6; }
-    }
+.menu-title { font-weight: 900; font-size: 1.2em; color: var(--primary); }
 
+.info-btn {
+  width: 100%;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid #222;
+  padding: 15px;
+  border-radius: 15px;
+  margin-bottom: 12px;
+  text-align: left;
+  cursor: pointer;
+  transition: 0.3s;
+  display: block;
+  text-decoration: none;
+}
 
-    /* --- Imagem do Telegram Card --- */
-    .telegram-card img {
-      width: 100%;
-      max-width: 500px;
-      height: auto;
-      border-radius: 15px;
-      margin-top: 30px;
-      box-shadow: 0 0 25px rgba(0, 136, 204, 0.7);
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-      transition: transform 0.3s ease;
-      filter: saturate(1.2); /* Satura mais a imagem */
-    }
-    .telegram-card img:hover {
-      transform: scale(1.03);
-      filter: saturate(1.5) brightness(1.1); /* Mais saturado e brilhante no hover */
-    }
-    .telegram-card .btn {
-      margin-top: 30px;
-    }
+.info-btn:hover { border-color: var(--primary); background: rgba(0, 255, 153, 0.05); }
 
-    /* --- CARD CLIENTE FUNCIONOU (Depoimentos em Carrossel) --- */
-    #depoimentos {
-      background-color: var(--gradient-end);
-    }
-    .depoimentos-container {
-      position: relative;
-      max-width: 800px;
-      margin: 0 auto;
-      overflow: hidden;
-      border-radius: 15px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
-      background-color: var(--light-bg); /* Fundo do container para depoimentos */
-      padding: 20px 0; /* Padding vertical */
-    }
-    .depoimentos-wrapper {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-    }
-    .depoimento-slide {
-      flex: 0 0 100%;
-      padding: 20px;
-      box-sizing: border-box;
-      text-align: center;
-    }
-    .depoimento-slide p.depoimento-texto {
-      font-style: italic;
-      margin-bottom: 20px;
-      font-size: 1.2em;
-      color: #ddd;
-    }
-    .depoimento-slide p.depoimento-autor {
-      font-weight: bold;
-      color: var(--primary-color);
-      font-size: 1.1em;
-    }
-    .depoimento-slide img {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 15px;
-      border: 3px solid var(--primary-color);
-      box-shadow: 0 0 15px rgba(247, 198, 0, 0.5);
-    }
-    .depoimentos-nav {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      padding: 0 10px;
-      box-sizing: border-box;
-    }
-    .depoimentos-nav button {
-      background-color: var(--primary-color);
-      color: var(--dark-bg);
-      border: none;
-      padding: 10px 15px;
-      border-radius: 50%;
-      cursor: pointer;
-      font-size: 1.5em;
-      font-weight: bold;
-      transition: background-color 0.3s ease, transform 0.3s ease;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-    }
-    .depoimentos-nav button:hover {
-      background-color: #e6b400;
-      transform: scale(1.1);
-    }
+.info-btn h5 { 
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
 
-    /* --- FAQ Section --- */
-    #faq-section {
-        background-color: var(--dark-bg);
-    }
-    .faq-container {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    .faq-item {
-      background-color: var(--light-bg);
-      border-radius: 10px;
-      padding: 20px 25px;
-      text-align: left;
-      border: 1px solid rgba(247, 198, 0, 0.1);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    }
-    .faq-question {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 1.3em;
-      font-weight: bold;
-      color: var(--primary-color);
-      cursor: pointer;
-      padding-bottom: 10px;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-      transition: color 0.3s ease;
-    }
-    .faq-question:hover {
-        color: white;
-    }
-    .faq-question i {
-      transition: transform 0.3s ease;
-    }
-    .faq-question.active i {
-      transform: rotate(180deg);
-    }
-    .faq-answer {
-      font-size: 1.1em;
-      color: #ddd;
-      padding-top: 15px;
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.5s ease-out, padding-top 0.5s ease-out;
-    }
-    .faq-answer.open {
-      max-height: 300px; /* Um valor grande o suficiente para a maioria das respostas */
-      padding-top: 15px;
-    }
+.info-btn .content {
+  max-height: 0;
+  overflow: hidden;
+  transition: 0.4s ease-out;
+  font-size: 13px;
+  color: var(--text-gray);
+  margin-top: 0;
+}
 
+.info-btn.active .content {
+  max-height: 200px;
+  margin-top: 15px;
+  padding-top: 10px;
+  border-top: 1px solid #222;
+}
 
-    /* --- Rodapé --- */
-    footer {
-      background-color: #000;
-      color: #888;
-      text-align: center;
-      padding: 40px;
-      font-size: 0.95em;
-      border-top: 1px solid rgba(247, 198, 0, 0.1);
-    }
-    footer a {
-        color: #888;
-        text-decoration: none;
-        margin: 0 15px;
-        transition: color 0.3s ease;
-    }
-    footer a:hover {
-        color: var(--primary-color);
-    }
+/* HEADER ULTRA BOLT */
+header {
+  padding: 60px 20px 50px;
+  text-align: center;
+  background: radial-gradient(circle at top, #004422 0%, var(--bg-dark) 80%);
+}
 
+header h1 {
+  font-size: 4em;
+  font-weight: 900;
+  background: linear-gradient(to bottom, #fff 40%, var(--primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+  letter-spacing: -4px;
+  line-height: 0.85;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 20px rgba(0, 255, 153, 0.3));
+}
 
-    /* --- Botão de Suporte Flutuante --- */
-    .support-button {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background-color: var(--secondary-color);
-      color: white;
-      border-radius: 50%;
-      width: 80px;
-      height: 80px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      box-shadow: 0 8px 20px rgba(0, 136, 204, 0.6);
-      z-index: 1000;
-      font-size: 14px;
-      font-weight: bold;
-      transition: all 0.3s ease;
-      animation: pulse 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
-    }
-    .support-button:hover {
-      background-color: #007bb5;
-      transform: scale(1.1);
-      box-shadow: 0 12px 30px rgba(0, 136, 204, 0.8);
-      animation: none;
-    }
-    .support-button i {
-      font-size: 40px;
-      margin-bottom: 5px;
-    }
-    @keyframes pulse {
-      0% {
-        transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(0, 136, 204, 0.7);
-      }
-      70% {
-        transform: scale(1.08);
-        box-shadow: 0 0 0 20px rgba(0, 136, 204, 0);
-      }
-      100% {
-        transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(0, 136, 204, 0);
-      }
-    }
+.status-bar {
+  display: inline-block;
+  padding: 8px 20px;
+  background: rgba(0, 255, 153, 0.1);
+  border: 1px solid var(--primary);
+  border-radius: 50px;
+  color: var(--primary);
+  font-size: 11px;
+  font-weight: 900;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
 
-    /* Keyframes para animações */
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes bounceIn {
-      0% { opacity: 0; transform: scale(0.3); }
-      50% { opacity: 0.9; transform: scale(1.1); }
-      80% { transform: scale(0.9); }
-      100% { opacity: 1; transform: scale(1); }
-    }
+/* CARROSSEL DE CATEGORIAS */
+.category-container {
+    padding: 20px 0;
+    background: #000;
+}
 
+.category-pills {
+    display: flex;
+    overflow-x: auto;
+    gap: 12px;
+    padding: 10px 5%;
+    scrollbar-width: none;
+}
+.category-pills::-webkit-scrollbar { display: none; }
 
-    /* --- Responsividade --- */
-    @media (max-width: 900px) {
-      .hero h2 {
-        font-size: 2.8em;
-      }
-      .hero p {
-        font-size: 1.2em;
-      }
-      .btn {
-        padding: 15px 30px;
-        font-size: 1.1em;
-      }
-      section h2 {
-        font-size: 2.2em;
-      }
-      .plan-card, .contact-card, .vantagens-card, .chat-card, .telegram-card, .depoimentos-card, .faq-card, .how-it-works-card {
-        max-width: 90%;
-        margin: 20px auto;
-      }
-      .card-container {
-        flex-direction: column;
-        align-items: center;
-      }
-      .how-it-works-item {
-        flex-direction: column;
-        text-align: center;
-      }
-      .how-it-works-item i {
-        margin-right: 0;
-        margin-bottom: 15px;
-      }
-    }
+.pill {
+    background: #161618;
+    padding: 12px 25px;
+    border-radius: 50px;
+    white-space: nowrap;
+    border: 1px solid #222;
+    font-size: 12px;
+    color: var(--text-gray);
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.pill.active { background: var(--primary); color: #000; border-color: var(--primary); box-shadow: 0 0 15px var(--glow); }
 
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 2.2em;
-      }
-      nav {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-      nav a {
-        margin: 8px 10px;
-        font-size: 0.95em;
-      }
-      .hero {
-        padding: 60px 15px;
-      }
-      .hero h2 {
-        font-size: 2.2em;
-      }
-      .hero p {
-        font-size: 1em;
-      }
-      .btn {
-        padding: 12px 25px;
-        font-size: 1em;
-        display: block; /* Botões empilhados em mobile */
-        margin: 10px auto;
-      }
-      section {
-        padding: 40px 15px;
-      }
-      section h2 {
-        font-size: 1.8em;
-      }
-      .plan-item h3 {
-        font-size: 1.5em;
-      }
-      .plan-item .price {
-        font-size: 1.8em;
-      }
-      .vantagens-card li {
-        font-size: 1em;
-      }
-      .vantagens-card li i {
-        font-size: 1.4em;
-        margin-right: 15px;
-      }
-      .chat-card input[type="text"], .chat-card button {
-        padding: 10px;
-        font-size: 0.9em;
-      }
-      .chat-card form {
-        flex-direction: column;
-      }
-      .chat-card input[type="text"] {
-        width: 100%;
-        margin-bottom: 10px;
-      }
-      .support-button {
-        width: 65px;
-        height: 65px;
-        font-size: 12px;
-        bottom: 20px;
-        right: 20px;
-      }
-      .support-button i {
-        font-size: 30px;
-      }
-    }
-  </style>
+/* SEÇÃO DE CATÁLOGO ANIME/FILMES */
+.premium-catalog { padding: 50px 5%; background: #000; }
+.anime-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 15px;
+  margin-top: 25px;
+}
+.anime-card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 2/3;
+  border: 1px solid #222;
+  transition: 0.4s;
+  cursor: pointer;
+}
+.anime-card img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+.anime-card:hover { transform: scale(1.05); border-color: var(--primary); box-shadow: 0 0 20px var(--glow); }
+.anime-card:hover img { filter: brightness(0.4) blur(2px); }
+.anime-info {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 15px;
+  opacity: 0;
+  transition: 0.3s;
+  background: linear-gradient(transparent, rgba(0,0,0,0.9));
+}
+.anime-card:hover .anime-info { opacity: 1; }
+.anime-info h4 { font-size: 14px; font-weight: 900; color: var(--primary); }
+.anime-info p { font-size: 10px; color: #fff; }
+
+/* NOVA SEÇÃO DE FEEDBACK "AO VIVO" (AVANÇADO) */
+.live-feedback-section {
+    padding: 60px 0;
+    background: linear-gradient(to bottom, #000, #0a0a0a);
+    overflow: hidden;
+    position: relative;
+}
+.marquee-container {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+    animation: scrollLeft 40s linear infinite; /* Animação infinita */
+}
+/* Pausa a animação ao passar o mouse para ler */
+.marquee-container:hover { animation-play-state: paused; }
+
+@keyframes scrollLeft {
+    to { transform: translateX(-50%); }
+}
+
+.feedback-card {
+    width: 300px;
+    background: #161618;
+    border: 1px solid #222;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    transition: 0.3s;
+}
+.feedback-card:hover { border-color: var(--primary); box-shadow: 0 5px 20px rgba(0, 255, 153, 0.1); transform: translateY(-5px); }
+
+.fb-header { display: flex; align-items: center; gap: 12px; }
+.fb-avatar { width: 45px; height: 45px; border-radius: 50%; object-fit: cover; border: 2px solid #333; }
+.fb-info h4 { font-size: 13px; font-weight: bold; margin: 0; color: #fff; }
+.fb-info span { font-size: 10px; color: var(--text-gray); display: block; }
+.verified-badge { 
+    background: rgba(0, 255, 153, 0.15); color: var(--primary); 
+    padding: 2px 8px; border-radius: 4px; font-size: 9px; font-weight: 900;
+    margin-left: auto; text-transform: uppercase; border: 1px solid var(--primary);
+}
+
+.fb-text { 
+    font-size: 12px; color: #ccc; line-height: 1.5; 
+    background: #000; padding: 10px; border-radius: 10px; border: 1px dashed #333;
+}
+.fb-stars { color: #ffcc00; font-size: 14px; letter-spacing: 2px; }
+
+/* SEÇÃO DE PROVA SOCIAL VISUAL */
+.proof-section { padding: 40px 5%; background: #000; text-align: center; border-bottom: 1px solid #1a1a1a; }
+.proof-grid { display: flex; overflow-x: auto; gap: 15px; padding: 20px 0; scrollbar-width: none; }
+.proof-grid::-webkit-scrollbar { display: none; }
+.proof-img { 
+    min-width: 260px; height: 160px; object-fit: cover; border-radius: 15px; 
+    border: 1px solid #333; filter: grayscale(0.2); transition: 0.3s; opacity: 0.8;
+}
+.proof-img:hover { filter: grayscale(0); border-color: var(--primary); opacity: 1; }
+
+/* GARANTIA BOX */
+.guarantee-box {
+    margin: 40px auto 10px; padding: 25px; max-width: 600px; width: 90%;
+    border: 1px solid rgba(0, 255, 153, 0.2); border-radius: 20px;
+    background: linear-gradient(145deg, #121214, #070708);
+    display: flex; align-items: center; gap: 20px; text-align: left;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+.guarantee-icon { width: 50px; height: 50px; flex-shrink: 0; }
+
+/* ESTILOS: COMO FUNCIONA E TABELA */
+.section-title { text-align: center; margin-bottom: 30px; color: var(--primary); font-weight: 900; text-transform: uppercase; letter-spacing: 1px; }
+
+.steps-container { display: flex; gap: 20px; padding: 20px 5%; flex-wrap: wrap; justify-content: center; margin-bottom: 50px; }
+.step-card { flex: 1; min-width: 250px; background: var(--card-bg); padding: 30px; border-radius: 25px; border: 1px solid #1a1a1a; text-align: center; transition: 0.3s; }
+.step-card:hover { border-color: var(--primary); }
+.step-icon { font-size: 40px; margin-bottom: 15px; display: block; }
+
+.comparison-section { padding: 50px 5%; max-width: 1000px; margin: 0 auto; }
+.comp-table { width: 100%; border-collapse: collapse; background: var(--card-bg); border-radius: 20px; overflow: hidden; border: 1px solid #222; }
+.comp-table th, .comp-table td { padding: 15px; text-align: center; border-bottom: 1px solid #1a1a1a; font-size: 13px; }
+.comp-table th { background: #161618; color: var(--primary); text-transform: uppercase; font-size: 11px; }
+.check { color: var(--primary); font-weight: bold; }
+.cross { color: var(--danger); font-weight: bold; }
+
+/* FAQ SECTION */
+.faq-section { padding: 50px 5%; max-width: 800px; margin: 0 auto; }
+.faq-item { background: #121214; border: 1px solid #222; border-radius: 15px; margin-bottom: 10px; overflow: hidden; }
+.faq-question { padding: 20px; cursor: pointer; display: flex; justify-content: space-between; font-weight: bold; font-size: 14px; }
+.faq-answer { padding: 0 20px; max-height: 0; overflow: hidden; transition: 0.4s ease; color: var(--text-gray); font-size: 13px; }
+.faq-item.active .faq-answer { padding: 0 20px 20px; max-height: 200px; }
+.faq-item.active .faq-question { color: var(--primary); }
+
+.trust-bar { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; padding: 40px 20px; opacity: 0.5; filter: grayscale(1); }
+.trust-item { text-align: center; font-size: 10px; font-weight: bold; }
+
+/* PLANOS COM GLOW */
+.plans {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 20px 5% 50px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid #1a1a1a;
+  border-radius: 25px;
+  padding: 35px 25px;
+  text-align: center;
+  transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.card:hover { border-color: var(--primary); transform: translateY(-8px); box-shadow: 0 0 30px var(--glow); }
+
+.badge {
+  position: absolute;
+  top: -12px; left: 50%;
+  transform: translateX(-50%);
+  background: var(--primary);
+  color: #000;
+  font-size: 10px;
+  padding: 5px 18px;
+  border-radius: 50px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+/* NOTIFICAÇÃO DE COMPRA */
+.purchase-toast {
+    position: fixed; bottom: 100px; left: 20px;
+    background: #161618; border: 1px solid var(--primary);
+    padding: 12px 20px; border-radius: 15px;
+    display: flex; align-items: center; gap: 12px;
+    z-index: 5000; transform: translateY(200px);
+    transition: 0.5s; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+.purchase-toast.active { transform: translateY(0); }
+.toast-user { width: 35px; height: 35px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #000; font-weight: bold; font-size: 12px;}
+
+/* CHATBOT VIP ULTRA HUMANIZADO */
+.chat-widget { position: fixed; bottom: 25px; right: 25px; z-index: 2000; }
+.chat-btn { width: 65px; height: 65px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 10px 30px rgba(0, 255, 153, 0.4); border: none; }
+.chat-btn.shake { animation: shake 0.5s ease-in-out infinite; }
+
+@keyframes shake {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(10deg); }
+    50% { transform: rotate(-10deg); }
+    75% { transform: rotate(10deg); }
+}
+
+.chat-window { position: fixed; bottom: 100px; right: 25px; width: 360px; height: 580px; background: #0b0b0d; border-radius: 25px; border: 1px solid #222; display: none; flex-direction: column; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.9); transition: 0.3s; }
+
+.chat-terms { position: absolute; inset: 0; background: #111112; z-index: 10; display: flex; flex-direction: column; padding: 30px; text-align: center; }
+.terms-scroll { flex: 1; overflow-y: auto; background: #000; padding: 15px; border-radius: 15px; font-size: 12px; color: #888; margin: 15px 0; border: 1px solid #222; text-align: left; }
+
+.chat-header { padding: 15px; background: #161618; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid #222; position: relative; }
+.agent-status { width: 10px; height: 10px; background: var(--primary); border-radius: 50%; border: 2px solid #161618; position: absolute; bottom: 15px; left: 45px; }
+.avatar { width: 45px; height: 45px; border-radius: 50%; object-fit: cover; border: 2px solid var(--primary); }
+
+.chat-messages { flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; scroll-behavior: smooth; background-image: radial-gradient(#1a1a1a 1px, transparent 1px); background-size: 20px 20px; }
+.msg { padding: 12px 16px; border-radius: 18px; font-size: 13px; max-width: 80%; line-height: 1.5; position: relative; animation: fadeIn 0.3s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+.msg.bot { background: #1e1e21; align-self: flex-start; border-bottom-left-radius: 4px; color: #eee; }
+.msg.user { background: var(--primary); color: #000; align-self: flex-end; border-bottom-right-radius: 4px; font-weight: 600; }
+.msg.typing { background: none; color: var(--primary); font-style: italic; font-size: 11px; padding: 0; }
+
+.chat-menu { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 10px; border-top: 1px solid #222; background: #111; }
+.menu-btn { background: #1a1a1c; border: 1px solid #333; color: #fff; padding: 10px; border-radius: 10px; font-size: 11px; cursor: pointer; transition: 0.2s; text-align: center; }
+.menu-btn:hover { border-color: var(--primary); background: rgba(0,255,153,0.05); }
+
+.feedback-overlay { display: none; position: absolute; inset: 0; background: rgba(0,0,0,0.9); z-index: 20; padding: 30px; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+.stars { display: flex; gap: 10px; margin: 20px 0; }
+.star { cursor: pointer; font-size: 24px; color: #333; transition: 0.2s; }
+.star.active { color: #ffcc00; }
+
+.chat-input-area { padding: 15px; background: #161618; display: flex; gap: 10px; }
+.chat-input-area input { flex: 1; background: #000; border: 1px solid #333; padding: 12px; border-radius: 12px; color: #fff; outline: none; font-size: 13px; }
+
+.scarcity { color: var(--danger); font-size: 11px; font-weight: bold; margin-bottom: 10px; text-transform: uppercase; }
+
+.price { font-size: 38px; font-weight: 900; margin: 15px 0; color: #fff; }
+.price span { font-size: 16px; color: var(--text-gray); }
+
+.buy { 
+  background: var(--primary); color: #000; width: 100%; padding: 18px; 
+  border-radius: 15px; font-weight: 900; border: none; cursor: pointer;
+  text-transform: uppercase; font-size: 14px; margin-top: auto;
+}
+
+/* MODAL E FOOTER */
+.modal-overlay {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.96); display: none; justify-content: center;
+  align-items: center; z-index: 3000;
+}
+.modal-content { background: #161618; width: 92%; max-width: 420px; padding: 40px; border-radius: 35px; border: 1px solid #333; position: relative; }
+/* Barra de Progresso do Modal */
+.progress-bar { height: 4px; width: 100%; background: #333; margin-bottom: 20px; border-radius: 10px; overflow: hidden; }
+.progress-fill { height: 100%; width: 5%; background: var(--primary); transition: 0.5s; }
+
+footer { text-align: center; padding: 60px; color: #333; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; }
+
+.wa-float {
+    position: fixed; bottom: 25px; left: 25px; background: #25d366; width: 60px; height: 60px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; z-index: 2000; box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.live-counter {
+    background: #ff4444; color: #fff; padding: 4px 12px; border-radius: 50px;
+    font-size: 10px; font-weight: 900; display: inline-flex; align-items: center; gap: 5px;
+}
+.dot-blink { width: 6px; height: 6px; background: #fff; border-radius: 50%; animation: blink 1s infinite; }
+@keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
+
+/* NOVOS ESTILOS PARA SELEÇÃO */
+.device-selector { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 15px; }
+.device-opt { 
+    background: #1a1a1c; border: 1px solid #333; padding: 15px 5px; border-radius: 12px; 
+    cursor: pointer; text-align: center; font-size: 11px; transition: 0.3s;
+}
+.device-opt.selected { border-color: var(--primary); background: rgba(0,255,153,0.1); color: var(--primary); }
+.device-opt svg { width: 24px; height: 24px; display: block; margin: 0 auto 8px; fill: currentColor; }
+
+.adult-toggle { 
+    background: #1a1a1c; border: 1px solid #333; padding: 15px; border-radius: 15px; 
+    display: flex; justify-content: space-between; align-items: center; margin: 20px 0;
+}
+.switch { position: relative; display: inline-block; width: 45px; height: 24px; }
+.switch input { opacity: 0; width: 0; height: 0; }
+.slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #333; transition: .4s; border-radius: 34px; }
+.slider:before { position: absolute; content: ""; height: 18px; width: 18px; left: 3px; bottom: 3px; background-color: white; transition: .4s; border-radius: 50%; }
+input:checked + .slider { background-color: var(--primary); }
+input:checked + .slider:before { transform: translateX(21px); }
+
+</style>
 </head>
 
 <body>
 
+<nav>
+  <div class="logo">IPTV BRASIL VIP</div>
+  <div class="menu-icon" onclick="toggleMenu()">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#00ff99" stroke-width="3" stroke-linecap="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+  </div>
+</nav>
+
+<div class="side-menu" id="sideMenu">
+  <div class="menu-header">
+    <div class="menu-title">CENTRAL VIP</div>
+    <div style="cursor: pointer; color: #fff; font-size: 20px;" onclick="toggleMenu()">✕</div>
+  </div>
+
+  <a href="https://discord.gg/bCpYaCqBJR" target="_blank" class="info-btn">
+    <h5><span>🎮</span> SERVIDOR DISCORD</h5>
+  </a>
+  <a href="https://referencias-six.vercel.app/" target="_blank" class="info-btn">
+    <h5><span>⭐</span> REFERÊNCIAS</h5>
+  </a>
+  <a href="https://t.me/ApelaWar71" target="_blank" class="info-btn">
+    <h5><span>✈️</span> SUPORTE TELEGRAM</h5>
+  </a>
+
+  <div style="height: 15px; border-bottom: 1px solid #222; margin-bottom: 15px;"></div>
+
+  <div class="info-btn" onclick="toggleAccordion(this)">
+    <h5><span>🕒</span> HORÁRIO VIP</h5>
+    <div class="content">Nosso suporte técnico funciona das 09h às 00h todos os dias. Liberação 24h.</div>
+  </div>
+  <div class="info-btn" onclick="toggleAccordion(this)">
+    <h5><span>🚀</span> TESTE GRÁTIS</h5>
+    <div class="content">Solicite seu acesso de 2 horas clicando no botão de teste da página inicial.</div>
+  </div>
+  <div class="info-btn" onclick="toggleAccordion(this)">
+    <h5><span>💳</span> PAGAMENTO</h5>
+    <div class="content">Aceitamos PIX, Cartão e Boleto. Liberação automática após envio do comprovante.</div>
+  </div>
+</div>
+
 <header>
-  <h1>OVER BAN</h1>
-  <nav>
-    <a href="#hero">Início</a>
-    <a href="#como-funciona">Como Funciona</a>
-    <a href="#planos">Planos</a>
-    <a href="#beneficios">Benefícios</a>
-    <a href="#depoimentos">Depoimentos</a>
-    <a href="#faq-section">FAQ</a>
-    <a href="#contato">Comprar</a>
-  </nav>
+  <div class="status-bar">● TECNOLOGIA ANTI-FREEZE 3.0 ATIVA</div>
+  <div style="margin-bottom: 15px;">
+    <div class="live-counter"><span class="dot-blink"></span> <span id="userCount">1.482</span> USUÁRIOS ONLINE</div>
+  </div>
+  <h1>IPTV BRASIL VIP</h1>
+  <p>A maior e mais estável grade de canais 4K do país.</p>
+
+  <div class="devices-bar">
+    <div class="device-item"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M21 2H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h7v2H8v2h8v-2h-2v-2h7c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H3V4h18v12z"/></svg>Smart TV</div>
+    <div class="device-item"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M17 1H7c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm0 19H7V4h10v16z"/></svg>Smartphone</div>
+    <div class="device-item"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14z"/></svg>TV Box</div>
+  </div>
+
+  <button class="buy" style="max-width:300px; margin: 20px auto; background: #fff;" onclick="openSelectionModal('Teste Grátis', 'R$ 0,00')">SOLICITAR TESTE GRÁTIS</button>
+
+  <p style="font-size: 10px; color: var(--danger); font-weight: bold; margin-top: 10px;">⚠️ PROMOÇÃO TERMINA EM: <span id="timer">04:59:59</span></p>
 </header>
 
-<section class="hero" id="hero">
-  <h2>Sua TV Premium: O Melhor do Entretenimento Sem Limites!</h2>
-  <p>Desfrute dos **melhores canais**, **filmes** e **séries** em **HD e Full HD** para você e sua família. Qualidade impecável, sem travamentos e com suporte dedicado 24h. Sua diversão está garantida e ao seu alcance!</p>
-  <a class="btn" href="https://t.me/OverBan07" target="_blank">FALE CONOSCO NO TELEGRAM</a>
-  <a class="btn secondary-btn" href="https://t.me/OverBan07?text=Quero%20meu%20teste%20gr%C3%A1tis%20de%2024h!" target="_blank">TESTE GRÁTIS POR 24H!</a>
-</section>
-
-<section id="como-funciona">
-    <h2>É Fácil Começar com Over Ban!</h2>
-    <div class="how-it-works-card">
-        <div class="how-it-works-item">
-            <i class="fas fa-hand-pointer"></i>
-            <div>
-                <h3>1. Escolha seu Plano Ideal</h3>
-                <p>Navegue por nossos planos mensais, trimestrais ou anuais e encontre a melhor opção para você e sua família.</p>
-            </div>
-        </div>
-        <div class="how-it-works-item">
-            <i class="fas fa-comment-dots"></i>
-            <div>
-                <h3>2. Fale Conosco no Telegram</h3>
-                <p>Clique no botão e entre em contato com nossa equipe de vendas no Telegram. Tire suas dúvidas e peça seu teste grátis!</p>
-            </div>
-        </div>
-        <div class="how-it-works-item">
-            <i class="fas fa-play-circle"></i>
-            <div>
-                <h3>3. Receba Seu Acesso Instantâneo</h3>
-                <p>Após a confirmação, seu acesso será liberado em minutos! Instale em seu dispositivo preferido e comece a assistir.</p>
-            </div>
-        </div>
-        <div class="how-it-works-item">
-            <i class="fas fa-tv"></i>
-            <div>
-                <h3>4. Aproveite Sem Limites!</h3>
-                <p>Canais HD, filmes e séries sem travamentos, 24 horas por dia, 7 dias por semana. Sua diversão garantida!</p>
-            </div>
-        </div>
+<section class="category-container">
+    <div class="category-pills">
+        <div class="pill active">Esportes (Premiere)</div>
+        <div class="pill">Filmes Lançamentos</div>
+        <div class="pill">Canais Abertos</div>
+        <div class="pill">Séries HBO/Netflix</div>
+        <div class="pill">Documentários</div>
+        <div class="pill">Infantil</div>
+        <div class="pill">Adultos +18</div>
     </div>
 </section>
 
-<section id="planos">
-  <h2>Escolha o Plano Perfeito Para Você!</h2>
-  <div class="card-container">
-    <div class="plan-card">
-      <div class="plan-item">
-        <h3>1 Mês</h3>
-        <p>Aproveite tudo que a Over Ban oferece por um mês, sem compromisso.</p>
-        <p class="price">R$ 20</p>
-        <a class="btn" href="https://t.me/OverBan07?text=Quero%20assinar%20o%20Plano%20Mensal%20(1%20m%C3%AAs)!" target="_blank">Assinar Agora</a>
+<section class="premium-catalog">
+  <h2 class="section-title">Conteúdo Premium 2026</h2>
+  <p style="text-align: center; font-size: 12px; color: var(--text-gray); margin-top: -20px;">Assista aos melhores animes e lançamentos do cinema em 4K!</p>
+
+  <div class="anime-grid">
+    <div class="anime-card" onclick="openSelectionModal('Plano Premium')">
+      <img src="https://images.unsplash.com/photo-1541562232579-512a21360020?auto=format&fit=crop&q=80&w=400" alt="Anime">
+      <div class="anime-info">
+        <h4>Solo Leveling</h4>
+        <p>Temporada Completa - Dual Áudio</p>
       </div>
     </div>
-
-    <div class="plan-card">
-      <div class="plan-item">
-        <h3>2 Meses</h3>
-        <p>Experimente mais tempo de diversão com um pequeno desconto!</p>
-        <p class="price">R$ 35 <span class="original-price">R$ 40</span></p>
-        <p class="discount-info">Economize R$ 5!</p>
-        <a class="btn" href="https://t.me/OverBan07?text=Quero%20assinar%20o%20Plano%20de%202%20Meses!" target="_blank">Assinar Agora</a>
+    <div class="anime-card" onclick="openSelectionModal('Plano Premium')">
+      <img src="https://images.unsplash.com/photo-1578632738980-3636f4553b3b?auto=format&fit=crop&q=80&w=400" alt="Anime">
+      <div class="anime-info">
+        <h4>One Piece</h4>
+        <p>Arco Egghead - Episódios Diários</p>
       </div>
     </div>
-
-    <div class="plan-card highlighted">
-      <div class="plan-item">
-        <h3>3 Meses</h3>
-        <p>3 meses de entretenimento ininterrupto com um super desconto!</p>
-        <p class="price">R$ 50 <span class="original-price">R$ 60</span></p>
-        <p class="discount-info">Economize R$ 10!</p>
-        <a class="btn" href="https://t.me/OverBan07?text=Quero%20assinar%20o%20Plano%20Trimestral%20(3%20meses)!" target="_blank">Assinar Agora</a>
+    <div class="anime-card" onclick="openSelectionModal('Plano Premium')">
+      <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=400" alt="Cinema">
+      <div class="anime-info">
+        <h4>Cinema VIP</h4>
+        <p>Lançamentos Direto do Cinema</p>
       </div>
     </div>
-
-    <div class="plan-card">
-      <div class="plan-item">
-        <h3>4 Meses</h3>
-        <p>Mais tempo de acesso com um custo-benefício ainda melhor!</p>
-        <p class="price">R$ 65 <span class="original-price">R$ 80</span></p>
-        <p class="discount-info">Economize R$ 15!</p>
-        <a class="btn" href="https://t.me/OverBan07?text=Quero%20assinar%20o%20Plano%20de%204%20Meses!" target="_blank">Assinar Agora</a>
+    <div class="anime-card" onclick="openSelectionModal('Plano Premium')">
+      <img src="https://images.unsplash.com/photo-1612178537253-bccd437b730e?auto=format&fit=crop&q=80&w=400" alt="Anime">
+      <div class="anime-info">
+        <h4>Naruto / Boruto</h4>
+        <p>Saga Completa e Filmes</p>
       </div>
-    </div>
-
-    <div class="plan-card">
-      <div class="plan-item">
-        <h3>5 Meses</h3>
-        <p>Quase meio ano de diversão garantida com um ótimo desconto!</p>
-        <p class="price">R$ 80 <span class="original-price">R$ 100</span></p>
-        <p class="discount-info">Economize R$ 20!</p>
-        <a class="btn" href="https://t.me/OverBan07?text=Quero%20assinar%20o%20Plano%20de%205%20Meses!" target="_blank">Assinar Agora</a>
-      </div>
-    </div>
-
-    <div class="plan-card highlighted">
-      <div class="plan-item">
-        <h3>8 Meses</h3>
-        <p>Super desconto para quem busca uma assinatura de longo prazo!</p>
-        <p class="price">R$ 100 <span class="original-price">R$ 160</span></p>
-        <p class="discount-info">Economize R$ 60!</p>
-        <a class="btn" href="https://t.me/OverBan07?text=Quero%20assinar%20o%20Plano%20de%208%20Meses!" target="_blank">Assinar Agora</a>
-      </div>
-    </div>
-
-    <div class="plan-card highlighted">
-      <div class="plan-item">
-        <h3>Plano Anual Premium</h3>
-        <p>O melhor custo-benefício! Um ano inteiro de pura diversão.</p>
-        <p class="price">R$ 150 <span class="original-price">R$ 240</span></p>
-        <p class="discount-info">Economize R$ 90!</p>
-        <a class="btn" href="https://t.me/OverBan07?text=Quero%20assinar%20o%20Plano%20Anual%20Premium!" target="_blank">Assinar Agora</a>
-      </div>
-    </div>
-  </div>
-  <p style="margin-top: 40px; font-size: 1.1em; color: var(--highlight-text);">
-    **🚨 DESCONTO EXCLUSIVO:** Se você **comprar na hora**, ganha **R$ 20 de desconto** em qualquer plano! Aproveite!
-  </p>
-</section>
-
-<section id="beneficios">
-  <h2>Por Que Over Ban é a Escolha Certa?</h2>
-  <div class="vantagens-card">
-    <ul>
-      <li><i class="fas fa-check-circle"></i> Qualidade de transmissão **100% HD e Full HD** para uma imagem e som impecáveis.</li>
-      <li><i class="fas fa-server"></i> **Servidores ultrarrápidos e estáveis:** Diga adeus aos travamentos e interrupções inesperadas!</li>
-      <li><i class="fas fa-film"></i> Mais de **10.000 conteúdos atualizados**: Acesso ilimitado a filmes, séries e canais ao vivo para toda a família.</li>
-      <li><i class="fas fa-headset"></i> **Suporte humanizado e ágil 24h por dia:** Estamos sempre prontos para te ajudar, a qualquer momento.</li>
-      <li><i class="fas fa-tags"></i> **Preço justo e acesso instantâneo:** Comece a assistir em minutos e aproveite descontos incríveis.</li>
-      <li><i class="fas fa-undo-alt"></i> **Garantia de Satisfação:** Se não amar, devolvemos seu dinheiro! Sua experiência é nossa prioridade.</li>
-    </ul>
-    <p><strong>Com Over Ban, você tem a melhor experiência IPTV garantida ou seu dinheiro de volta! Sua satisfação é nossa prioridade.</strong></p>
-  </div>
-</section>
-
-<section id="depoimentos">
-  <h2>O Que Nossos Clientes Satisfeitos Dizem!</h2>
-  <div class="depoimentos-container">
-    <div class="depoimentos-wrapper" id="depoimentos-wrapper">
-      <div class="depoimento-slide">
-        <img src="https://i.postimg.cc/02nzHgYc/IMG-7810.jpg" alt="Foto da Cliente Maria S.">
-        <p class="depoimento-texto">"Simplesmente o melhor serviço que já assinei! Qualidade impecável e sem travamentos. O suporte é super atencioso. Super recomendo a Over Ban!"</p>
-        <p class="depoimento-autor">- Maria S., Cliente Premium</p>
-      </div>
-      <div class="depoimento-slide">
-        <img src="https://i.postimg.cc/q730pG0k/pexels-photo-1043474.jpg" alt="Foto do Cliente João P.">
-        <p class="depoimento-texto">"Estou impressionado com a variedade de canais e a estabilidade. Minha família está amando, tem conteúdo para todo mundo. Finalmente um IPTV que funciona de verdade!"</p>
-        <p class="depoimento-autor">- João P., Fã de Esportes</p>
-      </div>
-      <div class="depoimento-slide">
-        <img src="https://i.postimg.cc/QtF8136C/pexels-photo-220453.jpg" alt="Foto da Cliente Ana C.">
-        <p class="depoimento-texto">"O atendimento é excepcional! Tive uma pequena dúvida e fui respondida rapidamente. O preço é justo pela quantidade e qualidade de conteúdo. Recomendo de olhos fechados!"</p>
-        <p class="depoimento-autor">- Ana C., Maratonista de Séries</p>
-      </div>
-      <div class="depoimento-slide">
-        <img src="https://i.postimg.cc/W34kR12f/pexels-photo-771742.jpg" alt="Foto do Cliente Carlos M.">
-        <p class="depoimento-texto">"Qualidade de imagem surreal e sem travamentos. Assistir meus filmes favoritos nunca foi tão bom! Aprovado!"</p>
-        <p class="depoimento-autor">- Carlos M., Cineasta</p>
-      </div>
-      <div class="depoimento-slide">
-        <img src="https://i.postimg.cc/XvX1Vv14/pexels-photo-874158.jpg" alt="Foto da Cliente Sofia R.">
-        <p class="depoimento-texto">"A estabilidade é o que mais me surpreendeu. Posso assistir por horas sem uma única interrupção. A Over Ban superou minhas expectativas!"</p>
-        <p class="depoimento-autor">- Sofia R., Aventureira Digital</p>
-      </div>
-    </div>
-    <div class="depoimentos-nav">
-      <button onclick="mudarDepoimento(-1)">&#10094;</button>
-      <button onclick="mudarDepoimento(1)">&#10095;</button>
     </div>
   </div>
 </section>
 
-<section id="chat-comunidade">
-  <div class="chat-card">
-    <h2>Interaja com Nossa Comunidade Online!</h2>
-    <div class="chat-mensagens" id="chat">
-      </div>
-    <form onsubmit="enviarMensagem(); return false;">
-      <input type="text" id="entradaMsg" placeholder="Deixe seu comentário ou pergunta..." required>
-      <button type="submit">Enviar</button>
-    </form>
-    <p class="disclaimer">💬 Este é um chat de demonstração para mostrar a interação da nossa comunidade e dar uma ideia do suporte. Para atendimento real e para assinar, clique nos botões "Fale Conosco" ou no botão de suporte flutuante!</p>
-  </div>
-</section>
+<section class="live-feedback-section">
+    <h2 class="section-title" style="margin-bottom: 10px;">Quem assina, recomenda!</h2>
+    <p style="text-align: center; font-size: 12px; color: var(--text-gray); margin-bottom: 40px;">Veja o que estão falando no nosso Grupo VIP 🟢</p>
 
-<section id="telegram-card">
-  <div class="telegram-card">
-    <h2>Comprove a Satisfação dos Nossos Clientes!</h2>
-    <p>Veja mais depoimentos, feedbacks positivos e interaja com nossa comunidade exclusiva no Telegram:</p>
-    <a href="https://t.me/+uFFspjkTUqdkZmZh" target="_blank">
-      <img src="https://i.postimg.cc/CL2Yc0P5/Telegram-Community-Mockup-Optimized.jpg" alt="Depoimentos e conversas de clientes Over Ban no Telegram">
-    </a>
-    <a class="btn secondary-btn" href="https://t.me/+uFFspjkTUqdkZmZh" target="_blank" style="margin-top: 25px;">Ver Grupo no Telegram</a>
-  </div>
-</section>
+    <div class="marquee-container">
+        <div class="feedback-card">
+            <div class="fb-header">
+                <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=100" class="fb-avatar">
+                <div class="fb-info">
+                    <h4>Lucas Mendes</h4>
+                    <span>Assinante há 6 meses</span>
+                </div>
+                <div class="verified-badge">✔ COMPRA VERIFICADA</div>
+            </div>
+            <div class="fb-text">"Cara, surreal a qualidade. Testei vários, mas esse anti-freeze de vcs é outro nível. O jogo do Flamengo rodou liso!"</div>
+            <div class="fb-stars">★★★★★</div>
+        </div>
 
-<section id="faq-section">
-    <h2>Perguntas Frequentes (FAQ)</h2>
-    <div class="faq-container">
-        <div class="faq-item">
-            <div class="faq-question">
-                Qual tipo de conteúdo a Over Ban oferece? <i class="fas fa-chevron-down"></i>
+        <div class="feedback-card">
+            <div class="fb-header">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100" class="fb-avatar">
+                <div class="fb-info">
+                    <h4>Mariana Costa</h4>
+                    <span>Plano Anual</span>
+                </div>
+                <div class="verified-badge">✔ COMPRA VERIFICADA</div>
             </div>
-            <div class="faq-answer">
-                Oferecemos uma vasta gama de conteúdo, incluindo mais de 10.000 canais de TV ao vivo (nacionais e internacionais), filmes, séries, documentários, esportes e conteúdo infantil, tudo em HD e Full HD e atualizado constantemente.
-            </div>
+            <div class="fb-text">"O suporte da Bruna foi incrível. Em 5 min já estava vendo minha novela. Recomendo demais!"</div>
+            <div class="fb-stars">★★★★★</div>
         </div>
-        <div class="faq-item">
-            <div class="faq-question">
-                Em quais dispositivos posso usar a Over Ban? <i class="fas fa-chevron-down"></i>
+
+        <div class="feedback-card">
+            <div class="fb-header">
+                <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&w=100" class="fb-avatar">
+                <div class="fb-info">
+                    <h4>Roberto Jr.</h4>
+                    <span>Plano Trimestral</span>
+                </div>
+                <div class="verified-badge">✔ COMPRA VERIFICADA</div>
             </div>
-            <div class="faq-answer">
-                Você pode usar a Over Ban em Smart TVs (Samsung, LG, Roku, Android TV), celulares Android e iOS, tablets, computadores, TV Box, Fire Stick e consoles de videogame (com aplicativos compatíveis).
-            </div>
+            <div class="fb-text">"A biblioteca de animes é muito completa! One Piece sai no dia seguinte. Top demais!"</div>
+            <div class="fb-stars">★★★★★</div>
         </div>
-        <div class="faq-item">
-            <div class="faq-question">
-                Preciso de uma internet muito rápida para usar o serviço? <i class="fas fa-chevron-down"></i>
+
+        <div class="feedback-card">
+            <div class="fb-header">
+                <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?auto=format&fit=crop&w=100" class="fb-avatar">
+                <div class="fb-info">
+                    <h4>Felipe S.</h4>
+                    <span>Assinante Recente</span>
+                </div>
+                <div class="verified-badge">✔ COMPRA VERIFICADA</div>
             </div>
-            <div class="faq-answer">
-                Recomendamos uma conexão de internet de no mínimo 10 a 15 Mbps para conteúdos em HD e 20 Mbps ou mais para Full HD, garantindo uma experiência sem travamentos.
-            </div>
+            <div class="fb-text">"Melhor investimento. Cancelei minha TV a cabo ontem. A imagem 4K é real mesmo."</div>
+            <div class="fb-stars">★★★★★</div>
         </div>
-        <div class="faq-item">
-            <div class="faq-question">
-                Como funciona o teste grátis de 24 horas? <i class="fas fa-chevron-down"></i>
+
+        <div class="feedback-card">
+            <div class="fb-header">
+                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=100" class="fb-avatar">
+                <div class="fb-info">
+                    <h4>Fernanda L.</h4>
+                    <span>Plano Mensal</span>
+                </div>
+                <div class="verified-badge">✔ COMPRA VERIFICADA</div>
             </div>
-            <div class="faq-answer">
-                Para solicitar seu teste grátis de 24 horas, basta clicar no botão "TESTE GRÁTIS" na página inicial ou falar com nossa equipe pelo Telegram. Você receberá seu acesso rapidamente para experimentar todo o nosso conteúdo.
-            </div>
-        </div>
-        <div class="faq-item">
-            <div class="faq-question">
-                Como faço para assinar? <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="faq-answer">
-                Você pode assinar seu plano preferido clicando nos botões "Assinar Agora" em nossa seção de planos. Isso irá direcioná-lo para nossa equipe no Telegram, onde você poderá finalizar a compra de forma rápida e segura.
-            </div>
+            <div class="fb-text">"Estava com medo de ser golpe, mas pedi o teste e liberaram na hora. Confiança total!"</div>
+            <div class="fb-stars">★★★★★</div>
         </div>
     </div>
 </section>
 
-<section id="contato">
-  <div class="contact-card">
-    <h2>Pronto para Transformar Sua Experiência de TV?</h2>
-    <p>Não perca tempo! Clique no botão abaixo e fale diretamente com nossa equipe para garantir sua TV Premium agora mesmo. É rápido, fácil e seguro!</p>
-    <a class="btn" href="https://t.me/ApelaWar71" target="_blank">QUERO ASSINAR AGORA VIA TELEGRAM</a>
-  </div>
+<section class="proof-section">
+    <h2 class="section-title" style="font-size: 1.2em; margin-bottom: 10px;">Prints do WhatsApp</h2>
+    <p style="font-size: 12px; color: var(--text-gray); margin-bottom: 20px;">Transparência total com nossos clientes</p>
+    <div class="proof-grid">
+        <img src="https://images.unsplash.com/photo-1614680376593-902f74cf0d41?auto=format&fit=crop&q=80&w=400" class="proof-img" alt="Print Cliente 1">
+        <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&q=80&w=400" class="proof-img" alt="Print Cliente 2">
+        <img src="https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&q=80&w=400" class="proof-img" alt="Print Cliente 3">
+    </div>
 </section>
 
+<div class="guarantee-box">
+    <img src="https://cdn-icons-png.flaticon.com/512/9638/9638645.png" class="guarantee-icon" alt="Selo Garantia">
+    <div>
+        <h4 style="color: var(--primary); font-size: 15px; font-weight: 900;">GARANTIA RISCO ZERO</h4>
+        <p style="font-size: 12px; color: var(--text-gray);">Teste por 7 dias. Se travar, devolvemos 100% do seu dinheiro na hora via PIX.</p>
+    </div>
+</div>
 
-<footer>
-  <p>&copy; 2025 Over Ban - Sua TV Premium. Todos os direitos reservados.</p>
-  <div>
-      <a href="#">Política de Privacidade</a> | <a href="#">Termos de Serviço</a>
+<section style="padding-top: 50px;">
+    <h2 class="section-title">COMO TER ACESSO VIP</h2>
+    <div class="steps-container">
+        <div class="step-card">
+            <span class="step-icon">📱</span>
+            <h3 style="color: var(--primary); font-size: 16px;">1. PEÇA SEU TESTE</h3>
+            <p style="font-size: 12px; color: var(--text-gray); margin-top: 10px;">Chame no WhatsApp e receba seu login de 2h instantaneamente.</p>
+        </div>
+        <div class="step-card">
+            <span class="step-icon">⚙️</span>
+            <h3 style="color: var(--primary); font-size: 16px;">2. CONFIGURAÇÃO</h3>
+            <p style="font-size: 12px; color: var(--text-gray); margin-top: 10px;">Nossa equipe te ajuda a instalar no app certo para sua TV ou Celular.</p>
+        </div>
+        <div class="step-card">
+            <span class="step-icon">🍿</span>
+            <h3 style="color: var(--primary); font-size: 16px;">3. DIVERSÃO</h3>
+            <p style="font-size: 12px; color: var(--text-gray); margin-top: 10px;">Pronto! Agora é só curtir a maior grade 4K do Brasil sem travas.</p>
+        </div>
+    </div>
+</section>
+
+<section class="plans" id="plans-container"></section>
+
+<section class="comparison-section">
+    <h2 class="section-title">POR QUE SOMOS OS MELHORES?</h2>
+    <table class="comp-table">
+        <thead>
+            <tr>
+                <th>Recurso</th>
+                <th>IPTV BRASIL VIP</th>
+                <th>Concorrência</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Servidor Dedicado</td>
+                <td class="check">✔ Anti-Freeze 3.0</td>
+                <td class="cross">✘ Travas Constantes</td>
+            </tr>
+            <tr>
+                <td>Qualidade de Imagem</td>
+                <td class="check">✔ 4K HDR Real</td>
+                <td class="cross">✘ 1080p Comprimido</td>
+            </tr>
+            <tr>
+                <td>Suporte Humano</td>
+                <td class="check">✔ 09h às 00h</td>
+                <td class="cross">✘ Apenas por E-mail</td>
+            </tr>
+            <tr>
+                <td>Atualização Diária</td>
+                <td class="check">✔ Sim</td>
+                <td class="cross">✘ Raramente</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+<section class="faq-section">
+    <h2 class="section-title">DÚVIDAS FREQUENTES</h2>
+    <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">Quais aparelhos são compatíveis? <span>+</span></div>
+        <div class="faq-answer">Nosso sistema funciona em Smart TVs (Samsung, LG, Android), TV Box, Celulares, Tablets, PCs e aparelhos Roku.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">Preciso de quantos megas de internet? <span>+</span></div>
+        <div class="faq-answer">Recomendamos pelo menos 15MB para canais HD e 30MB para uma experiência fluida em 4K.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">O acesso é imediato após o pagamento? <span>+</span></div>
+        <div class="faq-answer">Sim! Após o envio do comprovante no WhatsApp, nossa equipe libera seu sinal em menos de 5 minutos.</div>
+    </div>
+</section>
+
+<div class="chat-widget">
+  <div class="chat-btn" id="chatBtn" onclick="toggleChat()">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="#000"><path d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10H2l2-2c-1.241-1.634-2-3.66-2-5.875C2 6.477 6.477 2 12 2z"/></svg>
   </div>
-</footer>
 
-<a class="support-button" href="https://t.me/OVERBANSUPORTE_BOT" target="_blank">
-  <i class="fab fa-telegram-plane"></i> Suporte
-</a>
+  <div class="chat-window" id="chatWindow">
+    <div class="chat-terms" id="chatTerms">
+        <h4 style="color: var(--primary)">Termos VIP</h4>
+        <div class="terms-scroll">
+            Ao iniciar este suporte, você concorda que: <br><br>
+            1. O teste grátis é de 2h.<br>
+            2. Pagamentos via PIX têm liberação imediata.<br>
+            3. Respeite nossos atendentes humanos.<br>
+            4. Seus dados estão protegidos sob nossa criptografia 256-bit.
+        </div>
+        <button class="buy" onclick="acceptTerms()">CONFIRMAR E INICIAR</button>
+    </div>
+
+    <div class="feedback-overlay" id="feedbackOverlay">
+        <h4 style="color: var(--primary)">Atendimento Concluído!</h4>
+        <p style="font-size: 11px; margin-top: 5px;">Como foi sua experiência?</p>
+        <div class="stars">
+            <span class="star" onclick="setStar(1)">★</span>
+            <span class="star" onclick="setStar(2)">★</span>
+            <span class="star" onclick="setStar(3)">★</span>
+            <span class="star" onclick="setStar(4)">★</span>
+            <span class="star" onclick="setStar(5)">★</span>
+        </div>
+        <textarea id="feedbackText" placeholder="Deixe um elogio..." style="width:100%; background:#000; border:1px solid #333; color:#fff; border-radius:10px; padding:10px; font-size:11px;"></textarea>
+        <button class="buy" style="margin-top:15px" onclick="submitFeedback()">ENVIAR FEEDBACK</button>
+    </div>
+
+    <div class="chat-header">
+      <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=100" class="avatar" id="agentAvatar">
+      <div class="agent-status"></div>
+      <div>
+        <strong id="agentName">Aguardando...</strong><br>
+        <small style="color:var(--text-gray)" id="agentRole">Suporte VIP</small>
+      </div>
+    </div>
+
+    <div class="chat-messages" id="chatMsgs">
+      <div class="msg bot">Aguarde, conectando você a um de nossos agentes...</div>
+    </div>
+
+    <div class="chat-menu" id="chatMenu" style="display: none;">
+        <div class="menu-btn" onclick="handleAction('planos')">Planos & Valores</div>
+        <div class="menu-btn" onclick="handleAction('pagamento')">Formas de Pagamento</div>
+        <div class="menu-btn" onclick="handleAction('entrega')">Como recebo?</div>
+        <div class="menu-btn" onclick="handleAction('pqcomprar')">Por que comprar?</div>
+        <div class="menu-btn" onclick="handleAction('referencias')">Referências</div>
+        <div class="menu-btn" onclick="handleAction('dificuldade')">Outros Assuntos</div>
+    </div>
+
+    <div class="chat-input-area">
+      <input type="text" id="chatInput" placeholder="Digite aqui...">
+      <button onclick="sendUserMsg()" style="background:var(--primary); border:none; padding:10px; border-radius:10px; cursor:pointer">➔</button>
+    </div>
+  </div>
+</div>
+
+<div class="trust-bar">
+    <div class="trust-item">🔐 SITE SEGURO (SSL)</div>
+    <div class="trust-item">💳 PIX / CARTÃO</div>
+    <div class="trust-item">⭐ 7 DIAS DE GARANTIA</div>
+    <div class="trust-item">🚀 LIBERAÇÃO IMEDIATA</div>
+</div>
+
+<div class="modal-overlay" id="selectionModal">
+  <div class="modal-content">
+    <span style="position:absolute; top:20px; right:20px; cursor:pointer; color:#666" onclick="closeModal()">✕</span>
+    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+
+    <h3 id="sel-title" style="color:var(--primary); font-weight:900; margin-bottom:5px">Configurar Acesso</h3>
+    <p id="sel-subtitle" style="font-size: 11px; color: #888; margin-bottom: 20px;">Aparelho e preferências para agilizar seu suporte:</p>
+
+    <label style="font-size:11px; color:#888; text-transform: uppercase; font-weight: bold;">1. Qual aparelho você usa?</label>
+    <div class="device-selector">
+      <div class="device-opt" onclick="selectDevice('Android', this)">
+        <svg viewBox="0 0 24 24"><path d="M17.523 15.3414C18.4209 15.3414 19.148 14.6143 19.148 13.7164C19.148 12.8185 18.4209 12.0914 17.523 12.0914C16.625 12.0914 15.898 12.8185 15.898 13.7164C15.898 14.6143 16.625 15.3414 17.523 15.3414Z"/><path d="M6.47703 15.3414C7.37494 15.3414 8.10206 14.6143 8.10206 13.7164C8.10206 12.8185 7.37494 12.0914 6.47703 12.0914C5.57912 12.0914 4.85199 12.8185 4.85199 13.7164C4.85199 14.6143 5.57912 15.3414 6.47703 15.3414Z"/><path d="M20.245 10.612C19.537 10.155 18.729 9.873 17.864 9.816L19.231 7.447C19.387 7.176 19.294 6.83 19.023 6.674C18.752 6.518 18.406 6.611 18.25 6.882L16.793 9.407C15.378 8.784 13.784 8.441 12.102 8.441C10.42 8.441 8.826 8.784 7.411 9.407L5.954 6.882C5.798 6.611 5.452 6.518 5.181 6.674C4.91 6.83 4.817 7.176 4.973 7.447L6.34 9.816C5.475 9.873 4.667 10.155 3.959 10.612C1.517 12.189 0.102 14.793 0.102 17.701H24.102C24.102 14.793 22.687 12.189 20.245 10.612Z"/></svg>
+        Android
+      </div>
+      <div class="device-opt" onclick="selectDevice('iPhone', this)">
+        <svg viewBox="0 0 24 24"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.39 5.98.7 7.25-.65 1.63-1.56 3.22-2.75 4.96zM12.03 7.25c-.02-2.89 2.47-5.36 5.29-5.25.32 3.39-3.22 5.57-5.29 5.25z"/></svg>
+        iPhone
+      </div>
+      <div class="device-opt" onclick="selectDevice('Smart TV', this)">
+        <svg viewBox="0 0 24 24"><path d="M21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h5v2h8v-2h5c1.1 0 1.99-.9 1.99-2L23 5c0-1.1-.9-2-2-2zm0 14H3V5h18v12z"/></svg>
+        TV / Box
+      </div>
+    </div>
+
+    <div class="adult-toggle">
+      <div>
+        <div style="font-size:14px; font-weight:bold">Conteúdo Adulto +18</div>
+        <div style="font-size:10px; color:#666">Incluir canais e filmes adultos?</div>
+      </div>
+      <label class="switch">
+        <input type="checkbox" id="adultCheck">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div style="margin: 20px 0; padding: 15px; background: rgba(0,255,153,0.05); border-radius: 12px; border: 1px dashed var(--primary);">
+      <p style="font-size:11px; color:#aaa; text-align: center; font-weight: bold;">
+        Para evitar erros de conexão, recomendamos sempre solicitar um teste grátis antes de assinar!
+      </p>
+    </div>
+
+    <button class="buy" onclick="sendToWhatsapp()">IR PARA O WHATSAPP</button>
+  </div>
+</div>
+
+<div class="purchase-toast" id="purchaseToast">
+    <div class="toast-user" id="toastInitial">M</div>
+    <div>
+        <div style="font-size: 11px; font-weight: bold; color: var(--primary)" id="toastText">Marcos de SP acabou de assinar!</div>
+        <div style="font-size: 9px; color: #888">Assinatura Anual VIP</div>
+    </div>
+</div>
+
+<footer>IPTV BRASIL VIP © 2026</footer>
 
 <script>
-  // Script para o Carrossel de Depoimentos
-  let slideIndex = 0;
-  const slides = document.querySelectorAll('.depoimento-slide');
-  const wrapper = document.getElementById('depoimentos-wrapper');
+const atendentes = [
+    { nome: "Bruna", avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100", saudacao: "Oi! Sou a Bruna. Vou te ajudar com seu acesso VIP hoje! 😊" },
+    { nome: "Carol", avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100", saudacao: "Olá, tudo bem? Carol aqui. Como posso tornar sua TV incrível hoje? ✨" },
+    { nome: "Júlia", avatar: "https://images.unsplash.com/photo-1554151228-14d9def656e4?w=100", saudacao: "Oiê! Sou a Júlia da Central VIP. Pronta para liberar seu sinal? 🚀" }
+];
 
-  function showSlides() {
-    if (slideIndex >= slides.length) { slideIndex = 0; }
-    if (slideIndex < 0) { slideIndex = slides.length - 1; }
-    wrapper.style.transform = `translateX(${-slideIndex * 100}%)`;
-  }
+let currentAgent = null;
 
-  function mudarDepoimento(n) {
-    slideIndex += n;
-    showSlides();
-  }
+// PLANOS ATUALIZADOS: 1 A 11 MESES + PLANO ANUAL
+const planos = [
+  { nome: "1 Mês", preco: "R$ 20" },
+  { nome: "2 Meses", preco: "R$ 40" },
+  { nome: "3 Meses", preco: "R$ 55", badge: "Mais Vendido" },
+  { nome: "4 Meses", preco: "R$ 60" },
+  { nome: "5 Meses", preco: "R$ 70" },
+  { nome: "6 Meses", preco: "R$ 75" },
+  { nome: "7 Meses", preco: "R$ 90" },
+  { nome: "8 Meses", preco: "R$ 95" },
+  { nome: "9 Meses", preco: "R$ 100" },
+  { nome: "10 Meses", preco: "R$ 110" },
+  { nome: "11 Meses", preco: "R$ 120" },
+  { nome: "Plano Anual", preco: "R$ 130" }
+];
 
-  // Auto-avanço do carrossel
-  let depoimentoInterval = setInterval(() => mudarDepoimento(1), 7000); // Muda a cada 7 segundos
+let selectedPlan = "";
+let selectedDeviceName = "";
 
-  // Pausa no hover para o carrossel
-  wrapper.parentElement.addEventListener('mouseover', () => clearInterval(depoimentoInterval));
-  wrapper.parentElement.addEventListener('mouseleave', () => depoimentoInterval = setInterval(() => mudarDepoimento(1), 7000));
+const container = document.getElementById("plans-container");
+planos.forEach(p => {
+  container.innerHTML += `<div class="card ${p.badge ? 'featured':''}">
+    ${p.badge ? `<div class="badge">${p.badge}</div>`:''}
+    <div class="scarcity">Vagas Limitadas</div>
+    <h2 style="font-size:22px; color:var(--primary); font-weight:900">${p.nome}</h2>
+    <div class="price">${p.preco}</div>
+    <ul style="list-style:none; font-size:11px; color:#666; margin-bottom:20px; text-align:left;">
+      <li>✔ +15.000 Canais 4K/FHD</li><li>✔ Filmes e Séries VIP</li><li>✔ Anti-Freeze v3.0</li>
+    </ul>
+    <button class="buy" onclick="openSelectionModal('${p.nome}')">ASSINAR AGORA</button>
+  </div>`;
+});
 
-  showSlides(); // Exibir o primeiro slide ao carregar
+// FUNÇÕES DE MODAL
+function openSelectionModal(plan) {
+    selectedPlan = plan;
+    selectedDeviceName = "";
+    document.querySelectorAll('.device-opt').forEach(opt => opt.classList.remove('selected'));
+    document.getElementById("progressFill").style.width = "5%"; // Reset progress
+    document.getElementById("selectionModal").style.display = "flex";
+}
 
+function closeModal() {
+    document.getElementById("selectionModal").style.display = "none";
+}
 
-  // Script para o Chat da Comunidade (Simulado)
-  const nomes = [
-    "OverBanFan", "IPTV_Master", "ClientePremium", "Qualidade100", "AssinanteVIP",
-    "StreamLover", "DivertidoMax", "ReiDoIPTV", "NetSemCorte", "CineManíaco", "SempreOn",
-    "PipocaFlix", "MegaEntretenimento", "ZeroBuffer", "Filipe_Conectado", "Dani_TV",
-    "Leo_Gamer", "Camila_Séries", "Rafa_Filmes", "Julia_Kids"
-  ];
+function selectDevice(dev, el) {
+    selectedDeviceName = dev;
+    document.querySelectorAll('.device-opt').forEach(opt => opt.classList.remove('selected'));
+    el.classList.add('selected');
+    // Anima a barra de progresso para 100%
+    document.getElementById("progressFill").style.width = "100%";
+}
 
-  const textos = [
-    "Acabei de renovar! Melhor IPTV do mercado, sem dúvida, e o preço é justo! 🚀",
-    "Qualidade de imagem surreal! Adorei a variedade de filmes e o catálogo de séries é gigante. 🤩",
-    "O suporte é super rápido e eficiente, tive uma dúvida e resolveram em minutos. Recomendo muito! ✨",
-    "Finalmente uma TV que não trava! Assistindo meus jogos sem interrupções. Estou muito satisfeito. ⚽",
-    "Peguei o plano anual e não me arrependo nem um pouco. Vale cada centavo! Conteúdo de sobra. 😎",
-    "Tem todos os campeonatos que eu queria, perfeito para esportes ao vivo. A qualidade da transmissão é TOP. 🏀🏈",
-    "Minha família está amando! Muita opção para as crianças e os adultos. Acabou a briga pelo controle remoto! 👨‍👩‍👧‍👦",
-    "O preço é imbatível pela qualidade que entregam. Suporte 24h é um diferencial e tanto. Recomendo forte! 👍",
-    "Chegou rápido e a instalação foi super simples, nem precisei de ajuda. Plug and play praticamente. ⚡",
-    "Melhor que qualquer serviço de streaming que já assinei, e ainda mais barato! Adeus mensalidades caras. 😉",
-    "Essa comunidade é top! Sempre com dicas e atualizações de filmes e séries novas. É bom ter onde interagir. 🤝",
-    "Perfeito para maratonar séries, não para um segundo sequer! A biblioteca é constantemente atualizada. 🎬",
-    "Nunca mais me preocupo com sinal. A estabilidade da Over Ban é impressionante. 💪",
-    "Estou usando há 6 meses e não tive UM problema. Parabéns à equipe! 🎉",
-    "Os canais em Full HD são incríveis, parece que estou no cinema! 🍿",
-    "A variedade de canais é insana! Tem de tudo um pouco para todos os gostos.",
-    "O teste grátis me convenceu na hora. É realmente tudo o que prometem e mais um pouco.",
-    "Finalmente um serviço de IPTV que realmente entrega o que promete. Aprovadíssimo!"
-  ];
-
-  const respostasUsuario = [
-    "Olá! Que bom que gostou! Para suporte real e ainda mais rápido, acesse nosso botão flutuante. 😉",
-    "Sua satisfação é nosso objetivo! Qualquer dúvida que surgir, nosso suporte oficial está sempre pronto para ajudar.",
-    "Ficamos muito felizes em saber disso! Para um atendimento mais ágil e personalizado, use nosso canal de suporte principal.",
-    "Isso mesmo! Trabalhamos duro para oferecer a melhor experiência. Temos uma equipe de suporte dedicada 24h por dia!",
-    "Obrigado pelo feedback! Se precisar de ajuda para instalar, configurar ou tiver qualquer outra questão, acesse nosso suporte.",
-    "Excelente! Estamos sempre aprimorando nossos serviços. Lembre-se que nosso suporte está disponível 24h para você!"
-  ];
-
-  function mostrarMensagem(mensagem) {
-    const chat = document.querySelector('.chat-mensagens');
-    const novaMensagem = document.createElement('div');
-    novaMensagem.classList.add('msg');
-    if (mensagem.nome === "Você") {
-      novaMensagem.classList.add('msg-voce');
+function sendToWhatsapp() {
+    if (!selectedDeviceName) {
+        alert("Por favor, selecione seu aparelho!");
+        return;
     }
-    novaMensagem.innerHTML = `<strong>${mensagem.nome}:</strong> ${mensagem.texto}`;
-    chat.insertBefore(novaMensagem, chat.firstChild);
-    chat.scrollTop = 0;
-  }
+    const adulto = document.getElementById("adultCheck").checked ? "COM ADULTO COMPLETO" : "SEM CONTEÚDO ADULTO";
+    const msg = `informações do cliente envie ao chat e aguarde%0A%0Aplano: (${selectedPlan})%0A(${selectedDeviceName})%0A(${adulto})`;
+    window.open(`https://wa.me/5532984660603?text=${msg}`);
+}
 
-  let chatInterval;
-  let typingTimeout;
+/* CHATBOT */
+function toggleChat() {
+    const win = document.getElementById("chatWindow");
+    const btn = document.getElementById("chatBtn");
 
-  function simularChat() {
-    chatInterval = setInterval(() => {
-      const chat = document.querySelector('.chat-mensagens');
-      const digitando = document.createElement('div');
-      digitando.classList.add('digitando');
-      digitando.innerHTML = `<em>Alguém está digitando...</em>`;
-      chat.insertBefore(digitando, chat.firstChild);
-
-      typingTimeout = setTimeout(() => {
-        if (document.querySelector('.digitando')) {
-          document.querySelector('.digitando').remove();
-        }
-        const nomeAleatorio = nomes[Math.floor(Math.random() * nomes.length)];
-        const textoAleatorio = textos[Math.floor(Math.random() * textos.length)];
-        mostrarMensagem({ nome: nomeAleatorio, texto: textoAleatorio });
-      }, 1500 + Math.random() * 1000);
-    }, 5000 + Math.random() * 2000);
-  }
-
-  function enviarMensagem() {
-    const msgInput = document.getElementById('entradaMsg');
-    const msg = msgInput.value.trim();
-    if (msg) {
-      mostrarMensagem({ nome: "Você", texto: msg });
-      msgInput.value = '';
-
-      clearInterval(chatInterval);
-      clearTimeout(typingTimeout);
-      if (document.querySelector('.digitando')) {
-        document.querySelector('.digitando').remove();
-      }
-
-      setTimeout(respostaAutomatica, 2500 + Math.random() * 1000);
-      setTimeout(simularChat, 5000);
+    if (win.style.display === "flex") {
+        win.style.display = "none";
+    } else {
+        win.style.display = "flex";
+        btn.classList.remove("shake"); // Para de balançar quando abre
     }
-  }
+}
 
-  function respostaAutomatica() {
-    const nomeResposta = nomes[Math.floor(Math.random() * nomes.length)];
-    const textoResposta = respostasUsuario[Math.floor(Math.random() * respostasUsuario.length)];
-    mostrarMensagem({ nome: nomeResposta, texto: textoResposta });
-  }
+// Balançar o ícone do chat a cada 8 segundos se estiver fechado
+setTimeout(() => {
+    const btn = document.getElementById("chatBtn");
+    if (document.getElementById("chatWindow").style.display !== "flex") {
+        btn.classList.add("shake");
+    }
+}, 8000);
 
-  // Script para o FAQ
-  document.addEventListener('DOMContentLoaded', function() {
-    const faqQuestions = document.querySelectorAll('.faq-question');
+function acceptTerms() {
+    document.getElementById("chatTerms").style.display = "none";
+    connectAgent();
+}
 
-    faqQuestions.forEach(question => {
-      question.addEventListener('click', () => {
-        const answer = question.nextElementSibling;
-        const icon = question.querySelector('i');
+function connectAgent() {
+    const msgs = document.getElementById("chatMsgs");
+    msgs.innerHTML = '<div class="msg bot">Buscando atendente disponível...</div>';
+    setTimeout(() => {
+        currentAgent = atendentes[Math.floor(Math.random() * atendentes.length)];
+        document.getElementById("agentAvatar").src = currentAgent.avatar;
+        document.getElementById("agentName").innerText = currentAgent.nome;
+        addBotMsg(currentAgent.saudacao);
+        setTimeout(() => { document.getElementById("chatMenu").style.display = "grid"; }, 1500);
+    }, 2000);
+}
 
-        faqQuestions.forEach(q => {
-          if (q !== question && q.classList.contains('active')) {
-            q.classList.remove('active');
-            q.nextElementSibling.classList.remove('open');
-            q.nextElementSibling.style.maxHeight = null;
-            q.querySelector('i').classList.remove('active');
-          }
-        });
+function addBotMsg(text) {
+    const msgs = document.getElementById("chatMsgs");
+    const typing = document.createElement("div");
+    typing.className = "msg typing";
+    typing.innerHTML = `${currentAgent.nome} está digitando...`;
+    msgs.appendChild(typing);
+    msgs.scrollTop = msgs.scrollHeight;
+    setTimeout(() => {
+        typing.remove();
+        const div = document.createElement("div");
+        div.className = "msg bot";
+        div.innerHTML = text;
+        msgs.appendChild(div);
+        msgs.scrollTop = msgs.scrollHeight;
+    }, 1500 + (text.length * 10)); 
+}
 
-        question.classList.toggle('active');
-        icon.classList.toggle('active');
-        if (answer.classList.contains('open')) {
-          answer.classList.remove('open');
-          answer.style.maxHeight = null;
-        } else {
-          answer.classList.add('open');
-          answer.style.maxHeight = answer.scrollHeight + "px";
-        }
-      });
-    });
+function handleAction(type) {
+    document.getElementById("chatMenu").style.display = "none";
+    if (type === 'planos') {
+        let lista = "<b>Nossos Planos VIP:</b><br>";
+        planos.forEach(p => lista += `• ${p.nome}: ${p.preco}<br>`);
+        addBotMsg(lista + "<br>Qual deles você prefere?");
+    } else if (type === 'pagamento') {
+        addBotMsg("Aceitamos <b>PIX</b> e Cartão.");
+    } else {
+        addBotMsg("Como posso te ajudar?");
+    }
+    setTimeout(() => { document.getElementById("chatMenu").style.display = "grid"; }, 3000);
+}
 
-    simularChat();
-  });
+function sendUserMsg() {
+    const input = document.getElementById("chatInput");
+    if (!input.value) return;
+    const msgs = document.getElementById("chatMsgs");
+    const div = document.createElement("div");
+    div.className = "msg user";
+    div.innerText = input.value;
+    msgs.appendChild(div);
+    input.value = "";
+    msgs.scrollTop = msgs.scrollHeight;
+    setTimeout(() => { addBotMsg("Entendi! Vou verificar isso para você."); }, 1000);
+}
+
+/* TIMERS E UTILITÁRIOS */
+function startTimer(duration, display) {
+    let timer = duration, hours, minutes, seconds;
+    setInterval(function () {
+        hours = parseInt(timer / 3600, 10);
+        minutes = parseInt((timer % 3600) / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+        display.textContent = (hours < 10 ? "0" + hours : hours) + ":" + (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds < 10 ? "0" + seconds : seconds);
+        if (--timer < 0) timer = duration;
+    }, 1000);
+}
+startTimer(18000, document.querySelector('#timer'));
+
+// Loop de notificações de compra realista
+const toastNames = ["Lucas", "Marcos", "Ana", "Felipe", "Juliana", "Roberto", "Carla", "Pedro"];
+const toastCities = ["SP", "RJ", "MG", "PR", "BA", "RS", "SC", "PE"];
+
+function showRandomToast() {
+    const toast = document.getElementById('purchaseToast');
+    const name = toastNames[Math.floor(Math.random() * toastNames.length)];
+    const city = toastCities[Math.floor(Math.random() * toastCities.length)];
+
+    document.getElementById('toastInitial').innerText = name.charAt(0);
+    document.getElementById('toastText').innerText = `${name} de ${city} acabou de assinar!`;
+
+    toast.classList.add('active');
+    setTimeout(() => {
+        toast.classList.remove('active');
+    }, 4000);
+}
+setInterval(showRandomToast, 12000);
+
+setInterval(() => {
+    const count = document.getElementById('userCount');
+    let val = parseInt(count.innerText.replace('.', ''));
+    val += Math.floor(Math.random() * 5) - 2;
+    count.innerText = val.toLocaleString('pt-BR');
+}, 3000);
+
+function toggleMenu() { document.getElementById("sideMenu").classList.toggle("active"); }
+function toggleAccordion(element) { element.classList.toggle('active'); }
+function toggleFaq(el) { el.classList.toggle('active'); }
+
+window.onclick = function(event) {
+    if (event.target == document.getElementById("selectionModal")) closeModal();
+}
 </script>
-
 </body>
 </html>
