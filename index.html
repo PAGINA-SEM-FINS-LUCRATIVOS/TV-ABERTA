@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
@@ -244,6 +244,37 @@ header h1 {
 
 /* SEÇÃO DE CATÁLOGO ANIME/FILMES */
 .premium-catalog { padding: 50px 5%; background: #000; }
+
+/* MELHORIA 1: BARRA DE BUSCA */
+.search-container {
+  max-width: 600px;
+  margin: 0 auto 30px;
+  position: relative;
+}
+.search-container input {
+  width: 100%;
+  padding: 15px 20px;
+  padding-left: 50px;
+  background: #161618;
+  border: 1px solid #222;
+  border-radius: 15px;
+  color: #fff;
+  font-size: 14px;
+  outline: none;
+  transition: 0.3s;
+}
+.search-container input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 15px var(--glow);
+}
+.search-icon {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-gray);
+}
+
 .anime-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
@@ -332,6 +363,31 @@ header h1 {
     border: 1px solid #333; filter: grayscale(0.2); transition: 0.3s; opacity: 0.8;
 }
 .proof-img:hover { filter: grayscale(0); border-color: var(--primary); opacity: 1; }
+
+/* MELHORIA 3: GRADE DE CANAIS VIP */
+.channel-logos-section {
+    padding: 40px 5%;
+    background: #000;
+    text-align: center;
+}
+.channel-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+    opacity: 0.7;
+}
+.channel-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    filter: grayscale(1) brightness(2);
+    transition: 0.3s;
+}
+.channel-item:hover img {
+    filter: grayscale(0) brightness(1);
+    transform: scale(1.1);
+}
 
 /* GARANTIA BOX */
 .guarantee-box {
@@ -538,6 +594,27 @@ input:checked + .slider:before { transform: translateX(21px); }
 }
 .btn-check.active { border-color: var(--primary); color: var(--primary); background: rgba(0,255,153,0.05); }
 
+/* MELHORIA 4: BOTÃO VOLTAR AO TOPO */
+#backToTop {
+  position: fixed;
+  bottom: 25px;
+  right: 100px;
+  background: var(--card-bg);
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
+  transition: 0.3s;
+  font-weight: bold;
+}
+#backToTop:hover { background: var(--primary); color: #000; }
+
 </style>
 </head>
 
@@ -664,7 +741,7 @@ input:checked + .slider:before { transform: translateX(21px); }
 <div class="modal-overlay" id="tvModal">
   <div class="modal-content">
     <span style="position:absolute; top:20px; right:20px; cursor:pointer; color:#666" onclick="closeTvModal()">✕</span>
-    
+
     <h3 style="color:var(--primary); font-weight:900; margin-bottom:10px;">Aviso Importante</h3>
     <p style="font-size: 12px; color: #ccc; margin-bottom: 20px;">Para saber se temos IPTV disponível para sua televisão, você deve solicitar um teste grátis informando o modelo abaixo:</p>
 
@@ -698,49 +775,73 @@ input:checked + .slider:before { transform: translateX(21px); }
 </div>
 
 <section class="category-container">
-    <div class="category-pills">
-        <div class="pill active">Esportes (Premiere)</div>
-        <div class="pill">Filmes Lançamentos</div>
-        <div class="pill">Canais Abertos</div>
-        <div class="pill">Séries HBO/Netflix</div>
-        <div class="pill">Documentários</div>
-        <div class="pill">Infantil</div>
-        <div class="pill">Adultos +18</div>
+    <div class="category-pills" id="categoryPills">
+        <div class="pill active" onclick="filterCategory('Tudo', this)">Tudo</div>
+        <div class="pill" onclick="filterCategory('Esportes', this)">Esportes (Premiere)</div>
+        <div class="pill" onclick="filterCategory('Filmes', this)">Filmes Lançamentos</div>
+        <div class="pill" onclick="filterCategory('Canais', this)">Canais Abertos</div>
+        <div class="pill" onclick="filterCategory('Séries', this)">Séries HBO/Netflix</div>
+        <div class="pill" onclick="filterCategory('Infantil', this)">Infantil</div>
+        <div class="pill" onclick="filterCategory('Adultos', this)">Adultos +18</div>
     </div>
 </section>
 
 <section class="premium-catalog">
   <h2 class="section-title">Conteúdo Premium 2026</h2>
-  <div class="anime-grid">
-    <div class="anime-card" onclick="openSelectionModal('Plano Premium')">
+
+  <div class="search-container">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="catalogSearch" placeholder="O que você quer assistir hoje?" onkeyup="searchCatalog()">
+  </div>
+
+  <div class="anime-grid" id="animeGrid">
+    <div class="anime-card" data-category="Séries" onclick="openSelectionModal('Plano Premium')">
       <img src="https://images.unsplash.com/photo-1541562232579-512a21360020?auto=format&fit=crop&q=80&w=400" alt="Anime">
       <div class="anime-info">
         <h4>Solo Leveling</h4>
-        <p>Temporada Completa</p>
+        <p>Séries / Animes</p>
       </div>
     </div>
-    <div class="anime-card" onclick="openSelectionModal('Plano Premium')">
+    <div class="anime-card" data-category="Séries" onclick="openSelectionModal('Plano Premium')">
       <img src="https://images.unsplash.com/photo-1578632738980-3636f4553b3b?auto=format&fit=crop&q=80&w=400" alt="Anime">
       <div class="anime-info">
         <h4>One Piece</h4>
-        <p>Arco Egghead</p>
+        <p>Séries / Animes</p>
       </div>
     </div>
-    <div class="anime-card" onclick="openSelectionModal('Plano Premium')">
+    <div class="anime-card" data-category="Filmes" onclick="openSelectionModal('Plano Premium')">
       <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=400" alt="Cinema">
       <div class="anime-info">
         <h4>Cinema VIP</h4>
-        <p>Lançamentos 4K</p>
+        <p>Filmes Lançamentos</p>
       </div>
     </div>
-    <div class="anime-card" onclick="openSelectionModal('Plano Premium')">
+    <div class="anime-card" data-category="Esportes" onclick="openSelectionModal('Plano Premium')">
+      <img src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&q=80&w=400" alt="Esportes">
+      <div class="anime-info">
+        <h4>Premiere FC</h4>
+        <p>Esportes ao Vivo</p>
+      </div>
+    </div>
+    <div class="anime-card" data-category="Canais" onclick="openSelectionModal('Plano Premium')">
       <img src="https://images.unsplash.com/photo-1612178537253-bccd437b730e?auto=format&fit=crop&q=80&w=400" alt="Anime">
       <div class="anime-info">
-        <h4>Naruto / Boruto</h4>
-        <p>Saga Completa</p>
+        <h4>Canais Abertos</h4>
+        <p>Full HD / 4K</p>
       </div>
     </div>
   </div>
+</section>
+
+<section class="channel-logos-section">
+    <h3 style="color: var(--text-gray); font-size: 13px; font-weight: 900; text-transform: uppercase;">Principais Canais da Grade</h3>
+    <div class="channel-grid">
+        <div class="channel-item"><img src="https://upload.wikimedia.org/wikipedia/commons/b/bb/Globo.com_logo.png" alt="Globo"></div>
+        <div class="channel-item"><img src="https://upload.wikimedia.org/wikipedia/pt/4/41/HBO_Logo.png" alt="HBO"></div>
+        <div class="channel-item"><img src="https://logodownload.org/wp-content/uploads/2018/10/premiere-logo.png" alt="Premiere"></div>
+        <div class="channel-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Discovery_Channel_logo_2019.svg/1200px-Discovery_Channel_logo_2019.svg.png" alt="Discovery"></div>
+        <div class="channel-item"><img src="https://logodownload.org/wp-content/uploads/2014/10/cartoon-network-logo-0.png" alt="Cartoon"></div>
+    </div>
 </section>
 
 <section class="live-feedback-section">
@@ -957,6 +1058,8 @@ input:checked + .slider:before { transform: translateX(21px); }
     </div>
 </div>
 
+<button id="backToTop" onclick="scrollToTop()">↑</button>
+
 <footer>IPTV BRASIL VIP © 2026</footer>
 
 <script>
@@ -1038,7 +1141,7 @@ function setDlStatus(isDownloaded) {
 function sendDownloadTrialRequest() {
     const adulto = document.getElementById("dl-adult").checked ? "✅ SIM" : "❌ NÃO";
     const primeira = document.getElementById("dl-first-time").checked ? "✅ PRIMEIRA VEZ" : "❌ JÁ CONHEÇO";
-    
+
     const msg = `Vim pelo site IPTV BRASIL VIP%0A` +
                 `-----------------%0A` +
                 `🚀 *SOLICITAÇÃO DE TESTE*%0A` +
@@ -1064,7 +1167,7 @@ function sendTvRequest() {
     const brand = document.getElementById("tvBrand").value;
     const model = document.getElementById("tvModel").value || "Não informado";
     const experience = document.getElementById("userExperience").value;
-    
+
     const msg = `Vim pelo site IPTV BRASIL VIP%0A` +
                 `-----------------%0A` +
                 `📺 *DÚVIDA SOBRE TV*%0A` +
@@ -1073,7 +1176,7 @@ function sendTvRequest() {
                 `❓ *EXPERIÊNCIA:* ${experience}%0A` +
                 `-----------------%0A` +
                 `Gostaria de saber se tem IPTV para minha televisão e solicitar um teste grátis!`;
-                
+
     window.open(`https://wa.me/5532984660603?text=${msg}`);
 }
 
@@ -1160,6 +1263,55 @@ window.onclick = function(event) {
     if (event.target == document.getElementById("selectionModal")) closeModal();
     if (event.target == document.getElementById("tvModal")) closeTvModal();
     if (event.target == document.getElementById("downloadModal")) closeDownloadModal();
+}
+
+/* --- NOVAS FUNÇÕES DE LÓGICA --- */
+
+// Lógica de Busca
+function searchCatalog() {
+    const input = document.getElementById('catalogSearch').value.toLowerCase();
+    const cards = document.querySelectorAll('.anime-card');
+
+    cards.forEach(card => {
+        const title = card.querySelector('h4').innerText.toLowerCase();
+        if (title.includes(input)) {
+            card.style.display = "block";
+        } else {
+            card.style.display = "none";
+        }
+    });
+}
+
+// Lógica de Filtro de Categorias
+function filterCategory(category, element) {
+    // Atualiza o visual das pills
+    const pills = document.querySelectorAll('.pill');
+    pills.forEach(p => p.classList.remove('active'));
+    element.classList.add('active');
+
+    const cards = document.querySelectorAll('.anime-card');
+    cards.forEach(card => {
+        const cardCategory = card.getAttribute('data-category');
+        if (category === 'Tudo' || cardCategory === category) {
+            card.style.display = "block";
+        } else {
+            card.style.display = "none";
+        }
+    });
+}
+
+// Lógica Voltar ao Topo
+window.onscroll = function() {
+    const btn = document.getElementById("backToTop");
+    if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
+        btn.style.display = "flex";
+    } else {
+        btn.style.display = "none";
+    }
+};
+
+function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 </script>
 </body>
