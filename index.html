@@ -946,13 +946,26 @@ function selectDevice(dev, el) {
     document.getElementById("progressFill").style.width = "100%";
 }
 
+// FUNÇÃO ATUALIZADA - MENSAGEM PROFISSIONAL PARA WHATSAPP
 function sendToWhatsapp() {
     if (!selectedDeviceName) {
         alert("Por favor, selecione seu aparelho!");
         return;
     }
-    const adulto = document.getElementById("adultCheck").checked ? "COM ADULTO COMPLETO" : "SEM CONTEÚDO ADULTO";
-    const msg = `informações do cliente envie ao chat e aguarde%0A%0Aplano: (${selectedPlan})%0A(${selectedDeviceName})%0A(${adulto})`;
+    const adulto = document.getElementById("adultCheck").checked ? "✅ *SIM* (Ativado)" : "❌ *NÃO* (Filtrado)";
+    
+    // Título da mensagem baseado no plano
+    const header = selectedPlan === 'Teste Grátis' ? "🚀 *SOLICITAÇÃO DE TESTE GRÁTIS*" : "💎 *NOVO PEDIDO DE ASSINATURA*";
+
+    const msg = `${header}%0A` +
+                `----------------------------------------%0A` +
+                `📌 *DADOS DO CLIENTE:*%0A` +
+                `💎 *PLANO:* ${selectedPlan}%0A` +
+                `📱 *APARELHO:* ${selectedDeviceName}%0A` +
+                `🔞 *ADULTO +18:* ${adulto}%0A` +
+                `----------------------------------------%0A` +
+                `Olá, acabei de configurar meu acesso no site e gostaria de receber meu login!`;
+
     window.open(`https://wa.me/5532984660603?text=${msg}`);
 }
 
