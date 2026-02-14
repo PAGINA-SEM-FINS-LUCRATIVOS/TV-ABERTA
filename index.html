@@ -181,6 +181,38 @@ header h1 {
   letter-spacing: 2px;
 }
 
+/* SERVER MONITOR WIDGET */
+.server-monitor {
+    background: rgba(0,0,0,0.5);
+    border: 1px solid #222;
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px 20px;
+    border-radius: 15px;
+    margin: 20px 0;
+}
+.pulse-green {
+    width: 10px; height: 10px;
+    background: var(--primary);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--primary);
+    animation: pulse 1.5s infinite;
+}
+@keyframes pulse { 0% { transform: scale(0.9); opacity: 0.7; } 50% { transform: scale(1.2); opacity: 1; } 100% { transform: scale(0.9); opacity: 0.7; } }
+
+/* DOWNLOADS */
+.downloads-container { padding: 40px 5%; background: #000; text-align: center; }
+.download-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 15px; margin-top: 25px; }
+.download-card { 
+    background: #161618; border: 1px solid #222; border-radius: 15px; padding: 20px; 
+    cursor: pointer; transition: 0.3s;
+}
+.download-card:hover { border-color: var(--primary); transform: translateY(-5px); }
+.download-card img { width: 40px; margin-bottom: 10px; filter: grayscale(1); transition: 0.3s; }
+.download-card:hover img { filter: grayscale(0); }
+.download-card p { font-size: 11px; font-weight: bold; color: var(--text-gray); }
+
 /* CARROSSEL DE CATEGORIAS */
 .category-container {
     padding: 20px 0;
@@ -245,7 +277,7 @@ header h1 {
 .anime-info h4 { font-size: 14px; font-weight: 900; color: var(--primary); }
 .anime-info p { font-size: 10px; color: #fff; }
 
-/* NOVA SEÇÃO DE FEEDBACK "AO VIVO" (AVANÇADO) */
+/* FEEDBACKS */
 .live-feedback-section {
     padding: 60px 0;
     background: linear-gradient(to bottom, #000, #0a0a0a);
@@ -256,9 +288,8 @@ header h1 {
     display: flex;
     gap: 20px;
     width: max-content;
-    animation: scrollLeft 40s linear infinite; /* Animação infinita */
+    animation: scrollLeft 40s linear infinite;
 }
-/* Pausa a animação ao passar o mouse para ler */
 .marquee-container:hover { animation-play-state: paused; }
 
 @keyframes scrollLeft {
@@ -274,9 +305,7 @@ header h1 {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    transition: 0.3s;
 }
-.feedback-card:hover { border-color: var(--primary); box-shadow: 0 5px 20px rgba(0, 255, 153, 0.1); transform: translateY(-5px); }
 
 .fb-header { display: flex; align-items: center; gap: 12px; }
 .fb-avatar { width: 45px; height: 45px; border-radius: 50%; object-fit: cover; border: 2px solid #333; }
@@ -294,7 +323,7 @@ header h1 {
 }
 .fb-stars { color: #ffcc00; font-size: 14px; letter-spacing: 2px; }
 
-/* SEÇÃO DE PROVA SOCIAL VISUAL */
+/* PROVA SOCIAL */
 .proof-section { padding: 40px 5%; background: #000; text-align: center; border-bottom: 1px solid #1a1a1a; }
 .proof-grid { display: flex; overflow-x: auto; gap: 15px; padding: 20px 0; scrollbar-width: none; }
 .proof-grid::-webkit-scrollbar { display: none; }
@@ -307,10 +336,10 @@ header h1 {
 /* GARANTIA BOX */
 .guarantee-box {
     margin: 40px auto 10px; padding: 25px; max-width: 600px; width: 90%;
-    border: 1px solid rgba(0, 255, 153, 0.2); border-radius: 20px;
-    background: linear-gradient(145deg, #121214, #070708);
+    border: 2px solid var(--primary); border-radius: 20px;
+    background: rgba(0, 255, 153, 0.05);
     display: flex; align-items: center; gap: 20px; text-align: left;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    box-shadow: 0 0 25px rgba(0, 255, 153, 0.1);
 }
 .guarantee-icon { width: 50px; height: 50px; flex-shrink: 0; }
 
@@ -485,6 +514,30 @@ footer { text-align: center; padding: 60px; color: #333; font-size: 11px; text-t
 input:checked + .slider { background-color: var(--primary); }
 input:checked + .slider:before { transform: translateX(21px); }
 
+/* SELOS RODAPÉ */
+.security-badges {
+    display: flex; justify-content: center; gap: 20px; padding: 20px;
+    opacity: 0.6; filter: grayscale(1);
+}
+.security-badges img { height: 30px; }
+
+/* ESTILOS PARA OS CAMPOS EXTRAS DO MODAL DE TV */
+.input-group { margin-bottom: 15px; text-align: left; }
+.input-group label { display: block; font-size: 11px; color: #888; margin-bottom: 5px; text-transform: uppercase; font-weight: bold; }
+.input-group input, .input-group select { 
+    width: 100%; background: #1a1a1c; border: 1px solid #333; padding: 12px; 
+    border-radius: 12px; color: #fff; font-size: 13px; outline: none;
+}
+.input-group input:focus { border-color: var(--primary); }
+
+/* ESTILOS NOVOS PARA MÓDULO DOWNLOAD */
+.btn-check-group { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; }
+.btn-check { 
+    background: #1a1a1c; border: 1px solid #333; color: #fff; padding: 12px; 
+    border-radius: 12px; cursor: pointer; font-size: 12px; font-weight: bold; transition: 0.3s;
+}
+.btn-check.active { border-color: var(--primary); color: var(--primary); background: rgba(0,255,153,0.05); }
+
 </style>
 </head>
 
@@ -537,6 +590,13 @@ input:checked + .slider:before { transform: translateX(21px); }
   <h1>IPTV BRASIL VIP</h1>
   <p>A maior e mais estável grade de canais 4K do país.</p>
 
+  <div class="server-monitor">
+      <div class="pulse-green"></div>
+      <span style="font-size: 11px; font-weight: bold; color: var(--primary);">SERVIDOR: ESTÁVEL (24ms)</span>
+      <span style="color: #444;">|</span>
+      <span style="font-size: 11px; color: #aaa;">UPTIME 99.9%</span>
+  </div>
+
   <div class="devices-bar">
     <div class="device-item"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M21 2H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h7v2H8v2h8v-2h-2v-2h7c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H3V4h18v12z"/></svg>Smart TV</div>
     <div class="device-item"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M17 1H7c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm0 19H7V4h10v16z"/></svg>Smartphone</div>
@@ -547,6 +607,95 @@ input:checked + .slider:before { transform: translateX(21px); }
 
   <p style="font-size: 10px; color: var(--danger); font-weight: bold; margin-top: 10px;">⚠️ PROMOÇÃO TERMINA EM: <span id="timer">04:59:59</span></p>
 </header>
+
+<section class="downloads-container">
+    <h2 class="section-title">Baixe nosso App Oficial</h2>
+    <div class="download-grid">
+        <div class="download-card" onclick="openDownloadModal('Android')">
+            <img src="https://cdn-icons-png.flaticon.com/512/888/888841.png" alt="Android">
+            <p>Android / TV Box</p>
+        </div>
+        <div class="download-card" onclick="openDownloadModal('iPhone')">
+            <img src="https://cdn-icons-png.flaticon.com/512/888/888841.png" style="filter: invert(1);" alt="iOS">
+            <p>iPhone / iPad</p>
+        </div>
+        <div class="download-card" onclick="openTvModal('Samsung')">
+            <img src="https://cdn-icons-png.flaticon.com/512/5977/5977591.png" alt="Samsung">
+            <p>Samsung TV</p>
+        </div>
+        <div class="download-card" onclick="openTvModal('LG')">
+            <img src="https://cdn-icons-png.flaticon.com/512/5977/5977585.png" alt="LG">
+            <p>LG WebOS</p>
+        </div>
+    </div>
+</section>
+
+<div class="modal-overlay" id="downloadModal">
+  <div class="modal-content">
+    <span style="position:absolute; top:20px; right:20px; cursor:pointer; color:#666" onclick="closeDownloadModal()">✕</span>
+    <h3 style="color:var(--primary); font-weight:900; margin-bottom:10px;">Módulo de Acesso</h3>
+    <p style="font-size: 12px; color: #ccc; margin-bottom: 20px;" id="dl-platform-text"></p>
+
+    <label style="font-size:11px; color:#888; text-transform: uppercase; font-weight: bold; display: block; margin-bottom: 10px;">Você já baixou o aplicativo?</label>
+    <div class="btn-check-group">
+        <button class="btn-check" id="btn-dl-no" onclick="setDlStatus(false)">Ainda não</button>
+        <button class="btn-check" id="btn-dl-yes" onclick="setDlStatus(true)">Sim, já baixei</button>
+    </div>
+
+    <div id="dl-install-area" style="display:none; margin-bottom: 20px; padding: 15px; background: rgba(255,255,255,0.03); border-radius: 12px; border: 1px solid #333;">
+        <p style="font-size: 11px; color: #fff; margin-bottom: 10px;">Clique abaixo para instalar agora:</p>
+        <button class="buy" id="dl-link-btn" style="background:#fff; height: 50px;">INSTALAR APLICATIVO</button>
+    </div>
+
+    <div id="dl-trial-area" style="display:none;">
+        <div class="adult-toggle">
+            <div style="font-size:13px; font-weight:bold">Conteúdo Adulto +18?</div>
+            <label class="switch"><input type="checkbox" id="dl-adult"><span class="slider"></span></label>
+        </div>
+        <div class="adult-toggle" style="margin-top:-10px">
+            <div style="font-size:13px; font-weight:bold">É sua primeira vez?</div>
+            <label class="switch"><input type="checkbox" id="dl-first-time"><span class="slider"></span></label>
+        </div>
+        <button class="buy" onclick="sendDownloadTrialRequest()">SOLICITAR TESTE GRÁTIS</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="tvModal">
+  <div class="modal-content">
+    <span style="position:absolute; top:20px; right:20px; cursor:pointer; color:#666" onclick="closeTvModal()">✕</span>
+    
+    <h3 style="color:var(--primary); font-weight:900; margin-bottom:10px;">Aviso Importante</h3>
+    <p style="font-size: 12px; color: #ccc; margin-bottom: 20px;">Para saber se temos IPTV disponível para sua televisão, você deve solicitar um teste grátis informando o modelo abaixo:</p>
+
+    <div class="input-group">
+        <label>Marca da TV</label>
+        <input type="text" id="tvBrand" readonly>
+    </div>
+
+    <div class="input-group">
+        <label>Nome/Modelo da TV (Opcional)</label>
+        <input type="text" id="tvModel" placeholder="Ex: Crystal UHD 4K">
+    </div>
+
+    <div class="input-group">
+        <label>Já usou IPTV antes?</label>
+        <select id="userExperience">
+            <option value="Primeira Vez">É minha primeira vez</option>
+            <option value="Já usei">Sim, já conheço</option>
+            <option value="Estou usando">Sim, estou usando outra</option>
+        </select>
+    </div>
+
+    <div style="margin: 20px 0; padding: 15px; background: rgba(0,255,153,0.05); border-radius: 12px; border: 1px dashed var(--primary);">
+      <p style="font-size:11px; color:#aaa; text-align: center; font-weight: bold;">
+        Nosso suporte verificará a loja de aplicativos da sua TV para você!
+      </p>
+    </div>
+
+    <button class="buy" onclick="sendTvRequest()">SOLICITAR TESTE GRÁTIS</button>
+  </div>
+</div>
 
 <section class="category-container">
     <div class="category-pills">
@@ -562,35 +711,33 @@ input:checked + .slider:before { transform: translateX(21px); }
 
 <section class="premium-catalog">
   <h2 class="section-title">Conteúdo Premium 2026</h2>
-  <p style="text-align: center; font-size: 12px; color: var(--text-gray); margin-top: -20px;">Assista aos melhores animes e lançamentos do cinema em 4K!</p>
-
   <div class="anime-grid">
     <div class="anime-card" onclick="openSelectionModal('Plano Premium')">
       <img src="https://images.unsplash.com/photo-1541562232579-512a21360020?auto=format&fit=crop&q=80&w=400" alt="Anime">
       <div class="anime-info">
         <h4>Solo Leveling</h4>
-        <p>Temporada Completa - Dual Áudio</p>
+        <p>Temporada Completa</p>
       </div>
     </div>
     <div class="anime-card" onclick="openSelectionModal('Plano Premium')">
       <img src="https://images.unsplash.com/photo-1578632738980-3636f4553b3b?auto=format&fit=crop&q=80&w=400" alt="Anime">
       <div class="anime-info">
         <h4>One Piece</h4>
-        <p>Arco Egghead - Episódios Diários</p>
+        <p>Arco Egghead</p>
       </div>
     </div>
     <div class="anime-card" onclick="openSelectionModal('Plano Premium')">
       <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=400" alt="Cinema">
       <div class="anime-info">
         <h4>Cinema VIP</h4>
-        <p>Lançamentos Direto do Cinema</p>
+        <p>Lançamentos 4K</p>
       </div>
     </div>
     <div class="anime-card" onclick="openSelectionModal('Plano Premium')">
       <img src="https://images.unsplash.com/photo-1612178537253-bccd437b730e?auto=format&fit=crop&q=80&w=400" alt="Anime">
       <div class="anime-info">
         <h4>Naruto / Boruto</h4>
-        <p>Saga Completa e Filmes</p>
+        <p>Saga Completa</p>
       </div>
     </div>
   </div>
@@ -598,8 +745,6 @@ input:checked + .slider:before { transform: translateX(21px); }
 
 <section class="live-feedback-section">
     <h2 class="section-title" style="margin-bottom: 10px;">Quem assina, recomenda!</h2>
-    <p style="text-align: center; font-size: 12px; color: var(--text-gray); margin-bottom: 40px;">Veja o que estão falando no nosso Grupo VIP 🟢</p>
-
     <div class="marquee-container">
         <div class="feedback-card">
             <div class="fb-header">
@@ -610,7 +755,7 @@ input:checked + .slider:before { transform: translateX(21px); }
                 </div>
                 <div class="verified-badge">✔ COMPRA VERIFICADA</div>
             </div>
-            <div class="fb-text">"Cara, surreal a qualidade. Testei vários, mas esse anti-freeze de vcs é outro nível. O jogo do Flamengo rodou liso!"</div>
+            <div class="fb-text">"Cara, surreal a qualidade. Testei vários, mas esse anti-freeze de vcs é outro nível."</div>
             <div class="fb-stars">★★★★★</div>
         </div>
 
@@ -623,46 +768,7 @@ input:checked + .slider:before { transform: translateX(21px); }
                 </div>
                 <div class="verified-badge">✔ COMPRA VERIFICADA</div>
             </div>
-            <div class="fb-text">"O suporte da Bruna foi incrível. Em 5 min já estava vendo minha novela. Recomendo demais!"</div>
-            <div class="fb-stars">★★★★★</div>
-        </div>
-
-        <div class="feedback-card">
-            <div class="fb-header">
-                <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&w=100" class="fb-avatar">
-                <div class="fb-info">
-                    <h4>Roberto Jr.</h4>
-                    <span>Plano Trimestral</span>
-                </div>
-                <div class="verified-badge">✔ COMPRA VERIFICADA</div>
-            </div>
-            <div class="fb-text">"A biblioteca de animes é muito completa! One Piece sai no dia seguinte. Top demais!"</div>
-            <div class="fb-stars">★★★★★</div>
-        </div>
-
-        <div class="feedback-card">
-            <div class="fb-header">
-                <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?auto=format&fit=crop&w=100" class="fb-avatar">
-                <div class="fb-info">
-                    <h4>Felipe S.</h4>
-                    <span>Assinante Recente</span>
-                </div>
-                <div class="verified-badge">✔ COMPRA VERIFICADA</div>
-            </div>
-            <div class="fb-text">"Melhor investimento. Cancelei minha TV a cabo ontem. A imagem 4K é real mesmo."</div>
-            <div class="fb-stars">★★★★★</div>
-        </div>
-
-        <div class="feedback-card">
-            <div class="fb-header">
-                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=100" class="fb-avatar">
-                <div class="fb-info">
-                    <h4>Fernanda L.</h4>
-                    <span>Plano Mensal</span>
-                </div>
-                <div class="verified-badge">✔ COMPRA VERIFICADA</div>
-            </div>
-            <div class="fb-text">"Estava com medo de ser golpe, mas pedi o teste e liberaram na hora. Confiança total!"</div>
+            <div class="fb-text">"O suporte da Bruna foi incrível. Em 5 min já estava vendo minha novela."</div>
             <div class="fb-stars">★★★★★</div>
         </div>
     </div>
@@ -670,11 +776,9 @@ input:checked + .slider:before { transform: translateX(21px); }
 
 <section class="proof-section">
     <h2 class="section-title" style="font-size: 1.2em; margin-bottom: 10px;">Prints do WhatsApp</h2>
-    <p style="font-size: 12px; color: var(--text-gray); margin-bottom: 20px;">Transparência total com nossos clientes</p>
     <div class="proof-grid">
         <img src="https://images.unsplash.com/photo-1614680376593-902f74cf0d41?auto=format&fit=crop&q=80&w=400" class="proof-img" alt="Print Cliente 1">
         <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&q=80&w=400" class="proof-img" alt="Print Cliente 2">
-        <img src="https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&q=80&w=400" class="proof-img" alt="Print Cliente 3">
     </div>
 </section>
 
@@ -697,12 +801,12 @@ input:checked + .slider:before { transform: translateX(21px); }
         <div class="step-card">
             <span class="step-icon">⚙️</span>
             <h3 style="color: var(--primary); font-size: 16px;">2. CONFIGURAÇÃO</h3>
-            <p style="font-size: 12px; color: var(--text-gray); margin-top: 10px;">Nossa equipe te ajuda a instalar no app certo para sua TV ou Celular.</p>
+            <p style="font-size: 12px; color: var(--text-gray); margin-top: 10px;">Nossa equipe te ajuda a instalar no app certo.</p>
         </div>
         <div class="step-card">
             <span class="step-icon">🍿</span>
             <h3 style="color: var(--primary); font-size: 16px;">3. DIVERSÃO</h3>
-            <p style="font-size: 12px; color: var(--text-gray); margin-top: 10px;">Pronto! Agora é só curtir a maior grade 4K do Brasil sem travas.</p>
+            <p style="font-size: 12px; color: var(--text-gray); margin-top: 10px;">Curta a maior grade 4K do Brasil sem travas.</p>
         </div>
     </div>
 </section>
@@ -730,16 +834,6 @@ input:checked + .slider:before { transform: translateX(21px); }
                 <td class="check">✔ 4K HDR Real</td>
                 <td class="cross">✘ 1080p Comprimido</td>
             </tr>
-            <tr>
-                <td>Suporte Humano</td>
-                <td class="check">✔ 09h às 00h</td>
-                <td class="cross">✘ Apenas por E-mail</td>
-            </tr>
-            <tr>
-                <td>Atualização Diária</td>
-                <td class="check">✔ Sim</td>
-                <td class="cross">✘ Raramente</td>
-            </tr>
         </tbody>
     </table>
 </section>
@@ -748,15 +842,11 @@ input:checked + .slider:before { transform: translateX(21px); }
     <h2 class="section-title">DÚVIDAS FREQUENTES</h2>
     <div class="faq-item" onclick="toggleFaq(this)">
         <div class="faq-question">Quais aparelhos são compatíveis? <span>+</span></div>
-        <div class="faq-answer">Nosso sistema funciona em Smart TVs (Samsung, LG, Android), TV Box, Celulares, Tablets, PCs e aparelhos Roku.</div>
-    </div>
-    <div class="faq-item" onclick="toggleFaq(this)">
-        <div class="faq-question">Preciso de quantos megas de internet? <span>+</span></div>
-        <div class="faq-answer">Recomendamos pelo menos 15MB para canais HD e 30MB para uma experiência fluida em 4K.</div>
+        <div class="faq-answer">Smart TVs, TV Box, Celulares, Tablets, PCs e aparelhos Roku.</div>
     </div>
     <div class="faq-item" onclick="toggleFaq(this)">
         <div class="faq-question">O acesso é imediato após o pagamento? <span>+</span></div>
-        <div class="faq-answer">Sim! Após o envio do comprovante no WhatsApp, nossa equipe libera seu sinal em menos de 5 minutos.</div>
+        <div class="faq-answer">Sim! Liberação em menos de 5 minutos após o envio do comprovante.</div>
     </div>
 </section>
 
@@ -772,15 +862,12 @@ input:checked + .slider:before { transform: translateX(21px); }
             Ao iniciar este suporte, você concorda que: <br><br>
             1. O teste grátis é de 2h.<br>
             2. Pagamentos via PIX têm liberação imediata.<br>
-            3. Respeite nossos atendentes humanos.<br>
-            4. Seus dados estão protegidos sob nossa criptografia 256-bit.
         </div>
         <button class="buy" onclick="acceptTerms()">CONFIRMAR E INICIAR</button>
     </div>
 
     <div class="feedback-overlay" id="feedbackOverlay">
         <h4 style="color: var(--primary)">Atendimento Concluído!</h4>
-        <p style="font-size: 11px; margin-top: 5px;">Como foi sua experiência?</p>
         <div class="stars">
             <span class="star" onclick="setStar(1)">★</span>
             <span class="star" onclick="setStar(2)">★</span>
@@ -788,8 +875,7 @@ input:checked + .slider:before { transform: translateX(21px); }
             <span class="star" onclick="setStar(4)">★</span>
             <span class="star" onclick="setStar(5)">★</span>
         </div>
-        <textarea id="feedbackText" placeholder="Deixe um elogio..." style="width:100%; background:#000; border:1px solid #333; color:#fff; border-radius:10px; padding:10px; font-size:11px;"></textarea>
-        <button class="buy" style="margin-top:15px" onclick="submitFeedback()">ENVIAR FEEDBACK</button>
+        <button class="buy" onclick="submitFeedback()">ENVIAR FEEDBACK</button>
     </div>
 
     <div class="chat-header">
@@ -802,16 +888,13 @@ input:checked + .slider:before { transform: translateX(21px); }
     </div>
 
     <div class="chat-messages" id="chatMsgs">
-      <div class="msg bot">Aguarde, conectando você a um de nossos agentes...</div>
+      <div class="msg bot">Conectando ao agente...</div>
     </div>
 
     <div class="chat-menu" id="chatMenu" style="display: none;">
         <div class="menu-btn" onclick="handleAction('planos')">Planos & Valores</div>
         <div class="menu-btn" onclick="handleAction('pagamento')">Formas de Pagamento</div>
-        <div class="menu-btn" onclick="handleAction('entrega')">Como recebo?</div>
-        <div class="menu-btn" onclick="handleAction('pqcomprar')">Por que comprar?</div>
         <div class="menu-btn" onclick="handleAction('referencias')">Referências</div>
-        <div class="menu-btn" onclick="handleAction('dificuldade')">Outros Assuntos</div>
     </div>
 
     <div class="chat-input-area">
@@ -825,7 +908,12 @@ input:checked + .slider:before { transform: translateX(21px); }
     <div class="trust-item">🔐 SITE SEGURO (SSL)</div>
     <div class="trust-item">💳 PIX / CARTÃO</div>
     <div class="trust-item">⭐ 7 DIAS DE GARANTIA</div>
-    <div class="trust-item">🚀 LIBERAÇÃO IMEDIATA</div>
+</div>
+
+<div class="security-badges">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/PayPal.svg/1200px-PayPal.svg.png" alt="PayPal">
+    <img src="https://logospng.org/download/pix/logo-pix-1024.png" alt="Pix">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/2560px-Visa_Inc._logo.svg.png" alt="Visa">
 </div>
 
 <div class="modal-overlay" id="selectionModal">
@@ -833,17 +921,16 @@ input:checked + .slider:before { transform: translateX(21px); }
     <span style="position:absolute; top:20px; right:20px; cursor:pointer; color:#666" onclick="closeModal()">✕</span>
     <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
 
-    <h3 id="sel-title" style="color:var(--primary); font-weight:900; margin-bottom:5px">Configurar Acesso</h3>
-    <p id="sel-subtitle" style="font-size: 11px; color: #888; margin-bottom: 20px;">Aparelho e preferências para agilizar seu suporte:</p>
+    <h3 style="color:var(--primary); font-weight:900;">Configurar Acesso</h3>
+    <p style="font-size: 11px; color: #888; margin-bottom: 20px;">Aparelho e preferências:</p>
 
-    <label style="font-size:11px; color:#888; text-transform: uppercase; font-weight: bold;">1. Qual aparelho você usa?</label>
     <div class="device-selector">
       <div class="device-opt" onclick="selectDevice('Android', this)">
-        <svg viewBox="0 0 24 24"><path d="M17.523 15.3414C18.4209 15.3414 19.148 14.6143 19.148 13.7164C19.148 12.8185 18.4209 12.0914 17.523 12.0914C16.625 12.0914 15.898 12.8185 15.898 13.7164C15.898 14.6143 16.625 15.3414 17.523 15.3414Z"/><path d="M6.47703 15.3414C7.37494 15.3414 8.10206 14.6143 8.10206 13.7164C8.10206 12.8185 7.37494 12.0914 6.47703 12.0914C5.57912 12.0914 4.85199 12.8185 4.85199 13.7164C4.85199 14.6143 5.57912 15.3414 6.47703 15.3414Z"/><path d="M20.245 10.612C19.537 10.155 18.729 9.873 17.864 9.816L19.231 7.447C19.387 7.176 19.294 6.83 19.023 6.674C18.752 6.518 18.406 6.611 18.25 6.882L16.793 9.407C15.378 8.784 13.784 8.441 12.102 8.441C10.42 8.441 8.826 8.784 7.411 9.407L5.954 6.882C5.798 6.611 5.452 6.518 5.181 6.674C4.91 6.83 4.817 7.176 4.973 7.447L6.34 9.816C5.475 9.873 4.667 10.155 3.959 10.612C1.517 12.189 0.102 14.793 0.102 17.701H24.102C24.102 14.793 22.687 12.189 20.245 10.612Z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M17.523 15.3414C18.4209 15.3414 19.148 14.6143 19.148 13.7164C19.148 12.8185 18.4209 12.0914 17.523 12.0914Z"/><path d="M20.245 10.612C19.537 10.155 18.729 9.873 17.864 9.816L19.231 7.447C19.387 7.176 19.294 6.83 19.023 6.674C18.752 6.518 18.406 6.611 18.25 6.882L16.793 9.407C15.378 8.784 13.784 8.441 12.102 8.441C10.42 8.441 8.826 8.784 7.411 9.407L5.954 6.882C5.798 6.611 5.452 6.518 5.181 6.674C4.91 6.83 4.817 7.176 4.973 7.447L6.34 9.816C5.475 9.873 4.667 10.155 3.959 10.612C1.517 12.189 0.102 14.793 0.102 17.701H24.102C24.102 14.793 22.687 12.189 20.245 10.612Z"/></svg>
         Android
       </div>
       <div class="device-opt" onclick="selectDevice('iPhone', this)">
-        <svg viewBox="0 0 24 24"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.39 5.98.7 7.25-.65 1.63-1.56 3.22-2.75 4.96zM12.03 7.25c-.02-2.89 2.47-5.36 5.29-5.25.32 3.39-3.22 5.57-5.29 5.25z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.39 5.98.7 7.25-.65 1.63-1.56 3.22-2.75 4.96z"/></svg>
         iPhone
       </div>
       <div class="device-opt" onclick="selectDevice('Smart TV', this)">
@@ -855,18 +942,8 @@ input:checked + .slider:before { transform: translateX(21px); }
     <div class="adult-toggle">
       <div>
         <div style="font-size:14px; font-weight:bold">Conteúdo Adulto +18</div>
-        <div style="font-size:10px; color:#666">Incluir canais e filmes adultos?</div>
       </div>
-      <label class="switch">
-        <input type="checkbox" id="adultCheck">
-        <span class="slider"></span>
-      </label>
-    </div>
-
-    <div style="margin: 20px 0; padding: 15px; background: rgba(0,255,153,0.05); border-radius: 12px; border: 1px dashed var(--primary);">
-      <p style="font-size:11px; color:#aaa; text-align: center; font-weight: bold;">
-        Para evitar erros de conexão, recomendamos sempre solicitar um teste grátis antes de assinar!
-      </p>
+      <label class="switch"><input type="checkbox" id="adultCheck"><span class="slider"></span></label>
     </div>
 
     <button class="buy" onclick="sendToWhatsapp()">IR PARA O WHATSAPP</button>
@@ -876,8 +953,7 @@ input:checked + .slider:before { transform: translateX(21px); }
 <div class="purchase-toast" id="purchaseToast">
     <div class="toast-user" id="toastInitial">M</div>
     <div>
-        <div style="font-size: 11px; font-weight: bold; color: var(--primary)" id="toastText">Marcos de SP acabou de assinar!</div>
-        <div style="font-size: 9px; color: #888">Assinatura Anual VIP</div>
+        <div style="font-size: 11px; font-weight: bold; color: var(--primary)" id="toastText">Marcos de SP assinou!</div>
     </div>
 </div>
 
@@ -885,31 +961,23 @@ input:checked + .slider:before { transform: translateX(21px); }
 
 <script>
 const atendentes = [
-    { nome: "Bruna", avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100", saudacao: "Oi! Sou a Bruna. Vou te ajudar com seu acesso VIP hoje! 😊" },
-    { nome: "Carol", avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100", saudacao: "Olá, tudo bem? Carol aqui. Como posso tornar sua TV incrível hoje? ✨" },
-    { nome: "Júlia", avatar: "https://images.unsplash.com/photo-1554151228-14d9def656e4?w=100", saudacao: "Oiê! Sou a Júlia da Central VIP. Pronta para liberar seu sinal? 🚀" }
+    { nome: "Bruna", avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100", saudacao: "Oi! Sou a Bruna. Vou te ajudar com seu acesso VIP hoje! 😊" }
 ];
 
 let currentAgent = null;
 
-// PLANOS ATUALIZADOS: 1 A 11 MESES + PLANO ANUAL
 const planos = [
-  { nome: "1 Mês", preco: "R$ 20" },
-  { nome: "2 Meses", preco: "R$ 40" },
-  { nome: "3 Meses", preco: "R$ 55", badge: "Mais Vendido" },
-  { nome: "4 Meses", preco: "R$ 60" },
-  { nome: "5 Meses", preco: "R$ 70" },
-  { nome: "6 Meses", preco: "R$ 75" },
-  { nome: "7 Meses", preco: "R$ 90" },
-  { nome: "8 Meses", preco: "R$ 95" },
-  { nome: "9 Meses", preco: "R$ 100" },
-  { nome: "10 Meses", preco: "R$ 110" },
-  { nome: "11 Meses", preco: "R$ 120" },
-  { nome: "Plano Anual", preco: "R$ 130" }
+  { nome: "1 Mês", preco: "R$ 20" }, { nome: "2 Meses", preco: "R$ 40" },
+  { nome: "3 Meses", preco: "R$ 55", badge: "Mais Vendido" }, { nome: "4 Meses", preco: "R$ 60" },
+  { nome: "5 Meses", preco: "R$ 70" }, { nome: "6 Meses", preco: "R$ 75" },
+  { nome: "7 Meses", preco: "R$ 90" }, { nome: "8 Meses", preco: "R$ 95" },
+  { nome: "9 Meses", preco: "R$ 100" }, { nome: "10 Meses", preco: "R$ 110" },
+  { nome: "11 Meses", preco: "R$ 120" }, { nome: "Plano Anual", preco: "R$ 130" }
 ];
 
 let selectedPlan = "";
 let selectedDeviceName = "";
+let currentDlPlatform = "";
 
 const container = document.getElementById("plans-container");
 planos.forEach(p => {
@@ -919,76 +987,114 @@ planos.forEach(p => {
     <h2 style="font-size:22px; color:var(--primary); font-weight:900">${p.nome}</h2>
     <div class="price">${p.preco}</div>
     <ul style="list-style:none; font-size:11px; color:#666; margin-bottom:20px; text-align:left;">
-      <li>✔ +15.000 Canais 4K/FHD</li><li>✔ Filmes e Séries VIP</li><li>✔ Anti-Freeze v3.0</li>
+      <li>✔ +15.000 Canais 4K</li><li>✔ Filmes e Séries VIP</li><li>✔ Anti-Freeze v3.0</li>
     </ul>
     <button class="buy" onclick="openSelectionModal('${p.nome}')">ASSINAR AGORA</button>
   </div>`;
 });
 
-// FUNÇÕES DE MODAL
 function openSelectionModal(plan) {
     selectedPlan = plan;
-    selectedDeviceName = "";
-    document.querySelectorAll('.device-opt').forEach(opt => opt.classList.remove('selected'));
-    document.getElementById("progressFill").style.width = "5%"; // Reset progress
     document.getElementById("selectionModal").style.display = "flex";
 }
 
-function closeModal() {
-    document.getElementById("selectionModal").style.display = "none";
+function closeModal() { document.getElementById("selectionModal").style.display = "none"; }
+
+/* MÓDULO DOWNLOAD INTELIGENTE */
+function openDownloadModal(platform) {
+    currentDlPlatform = platform;
+    document.getElementById("dl-platform-text").innerText = `Configurando acesso para dispositivo ${platform}:`;
+    document.getElementById("downloadModal").style.display = "flex";
+    setDlStatus(null); // Resetar botões
+}
+
+function closeDownloadModal() { document.getElementById("downloadModal").style.display = "none"; }
+
+function setDlStatus(isDownloaded) {
+    const btnNo = document.getElementById("btn-dl-no");
+    const btnYes = document.getElementById("btn-dl-yes");
+    const installArea = document.getElementById("dl-install-area");
+    const trialArea = document.getElementById("dl-trial-area");
+    const linkBtn = document.getElementById("dl-link-btn");
+
+    if (isDownloaded === null) {
+        btnNo.classList.remove("active"); btnYes.classList.remove("active");
+        installArea.style.display = "none"; trialArea.style.display = "none";
+        return;
+    }
+
+    if (isDownloaded) {
+        btnYes.classList.add("active"); btnNo.classList.remove("active");
+        installArea.style.display = "none"; trialArea.style.display = "block";
+    } else {
+        btnNo.classList.add("active"); btnYes.classList.remove("active");
+        installArea.style.display = "block"; trialArea.style.display = "none";
+        // Definir link baseado na plataforma
+        const url = (currentDlPlatform === 'Android') ? 'https://xciptv.br.uptodown.com/android' : 'https://apps.apple.com/app/id6459474877';
+        linkBtn.onclick = () => { window.open(url); setDlStatus(true); };
+    }
+}
+
+function sendDownloadTrialRequest() {
+    const adulto = document.getElementById("dl-adult").checked ? "✅ SIM" : "❌ NÃO";
+    const primeira = document.getElementById("dl-first-time").checked ? "✅ PRIMEIRA VEZ" : "❌ JÁ CONHEÇO";
+    
+    const msg = `Vim pelo site IPTV BRASIL VIP%0A` +
+                `-----------------%0A` +
+                `🚀 *SOLICITAÇÃO DE TESTE*%0A` +
+                `📱 *APARELHO:* ${currentDlPlatform}%0A` +
+                `🔞 *ADULTO:* ${adulto}%0A` +
+                `❓ *STATUS:* ${primeira}%0A` +
+                `-----------------%0A` +
+                `Já baixei o aplicativo e gostaria de receber meu login de teste!`;
+    window.open(`https://wa.me/5532984660603?text=${msg}`);
+}
+
+/* FUNÇÕES PARA O MODAL DE TV */
+function openTvModal(brand) {
+    document.getElementById("tvBrand").value = brand;
+    document.getElementById("tvModal").style.display = "flex";
+}
+
+function closeTvModal() {
+    document.getElementById("tvModal").style.display = "none";
+}
+
+function sendTvRequest() {
+    const brand = document.getElementById("tvBrand").value;
+    const model = document.getElementById("tvModel").value || "Não informado";
+    const experience = document.getElementById("userExperience").value;
+    
+    const msg = `Vim pelo site IPTV BRASIL VIP%0A` +
+                `-----------------%0A` +
+                `📺 *DÚVIDA SOBRE TV*%0A` +
+                `📌 *MARCA:* ${brand}%0A` +
+                `📝 *MODELO:* ${model}%0A` +
+                `❓ *EXPERIÊNCIA:* ${experience}%0A` +
+                `-----------------%0A` +
+                `Gostaria de saber se tem IPTV para minha televisão e solicitar um teste grátis!`;
+                
+    window.open(`https://wa.me/5532984660603?text=${msg}`);
 }
 
 function selectDevice(dev, el) {
     selectedDeviceName = dev;
     document.querySelectorAll('.device-opt').forEach(opt => opt.classList.remove('selected'));
     el.classList.add('selected');
-    // Anima a barra de progresso para 100%
     document.getElementById("progressFill").style.width = "100%";
 }
 
-// FUNÇÃO ATUALIZADA - MENSAGEM PROFISSIONAL PARA WHATSAPP
 function sendToWhatsapp() {
-    if (!selectedDeviceName) {
-        alert("Por favor, selecione seu aparelho!");
-        return;
-    }
-    const adulto = document.getElementById("adultCheck").checked ? "✅ *SIM* (Ativado)" : "❌ *NÃO* (Filtrado)";
-    
-    // Título da mensagem baseado no plano
-    const header = selectedPlan === 'Teste Grátis' ? "🚀 *SOLICITAÇÃO DE TESTE GRÁTIS*" : "💎 *NOVO PEDIDO DE ASSINATURA*";
-
-    const msg = `${header}%0A` +
-                `----------------------------------------%0A` +
-                `📌 *DADOS DO CLIENTE:*%0A` +
-                `💎 *PLANO:* ${selectedPlan}%0A` +
-                `📱 *APARELHO:* ${selectedDeviceName}%0A` +
-                `🔞 *ADULTO +18:* ${adulto}%0A` +
-                `----------------------------------------%0A` +
-                `Olá, acabei de configurar meu acesso no site e gostaria de receber meu login!`;
-
+    if (!selectedDeviceName) { alert("Selecione seu aparelho!"); return; }
+    const adulto = document.getElementById("adultCheck").checked ? "✅ SIM" : "❌ NÃO";
+    const msg = `💎 *NOVO PEDIDO IPTV*%0A-----------------%0A📌 *PLANO:* ${selectedPlan}%0A📱 *APARELHO:* ${selectedDeviceName}%0A🔞 *ADULTO:* ${adulto}%0A-----------------%0AOlá, quero liberar meu acesso!`;
     window.open(`https://wa.me/5532984660603?text=${msg}`);
 }
 
-/* CHATBOT */
 function toggleChat() {
     const win = document.getElementById("chatWindow");
-    const btn = document.getElementById("chatBtn");
-
-    if (win.style.display === "flex") {
-        win.style.display = "none";
-    } else {
-        win.style.display = "flex";
-        btn.classList.remove("shake"); // Para de balançar quando abre
-    }
+    win.style.display = (win.style.display === "flex") ? "none" : "flex";
 }
-
-// Balançar o ícone do chat a cada 8 segundos se estiver fechado
-setTimeout(() => {
-    const btn = document.getElementById("chatBtn");
-    if (document.getElementById("chatWindow").style.display !== "flex") {
-        btn.classList.add("shake");
-    }
-}, 8000);
 
 function acceptTerms() {
     document.getElementById("chatTerms").style.display = "none";
@@ -997,91 +1103,51 @@ function acceptTerms() {
 
 function connectAgent() {
     const msgs = document.getElementById("chatMsgs");
-    msgs.innerHTML = '<div class="msg bot">Buscando atendente disponível...</div>';
+    msgs.innerHTML = '<div class="msg bot">Conectando...</div>';
     setTimeout(() => {
-        currentAgent = atendentes[Math.floor(Math.random() * atendentes.length)];
+        currentAgent = atendentes[0];
         document.getElementById("agentAvatar").src = currentAgent.avatar;
         document.getElementById("agentName").innerText = currentAgent.nome;
         addBotMsg(currentAgent.saudacao);
-        setTimeout(() => { document.getElementById("chatMenu").style.display = "grid"; }, 1500);
-    }, 2000);
+        setTimeout(() => { document.getElementById("chatMenu").style.display = "grid"; }, 1000);
+    }, 1500);
 }
 
 function addBotMsg(text) {
     const msgs = document.getElementById("chatMsgs");
-    const typing = document.createElement("div");
-    typing.className = "msg typing";
-    typing.innerHTML = `${currentAgent.nome} está digitando...`;
-    msgs.appendChild(typing);
+    const div = document.createElement("div");
+    div.className = "msg bot";
+    div.innerHTML = text;
+    msgs.appendChild(div);
     msgs.scrollTop = msgs.scrollHeight;
-    setTimeout(() => {
-        typing.remove();
-        const div = document.createElement("div");
-        div.className = "msg bot";
-        div.innerHTML = text;
-        msgs.appendChild(div);
-        msgs.scrollTop = msgs.scrollHeight;
-    }, 1500 + (text.length * 10)); 
 }
 
 function handleAction(type) {
-    document.getElementById("chatMenu").style.display = "none";
-    if (type === 'planos') {
-        let lista = "<b>Nossos Planos VIP:</b><br>";
-        planos.forEach(p => lista += `• ${p.nome}: ${p.preco}<br>`);
-        addBotMsg(lista + "<br>Qual deles você prefere?");
-    } else if (type === 'pagamento') {
-        addBotMsg("Aceitamos <b>PIX</b> e Cartão.");
-    } else {
-        addBotMsg("Como posso te ajudar?");
-    }
-    setTimeout(() => { document.getElementById("chatMenu").style.display = "grid"; }, 3000);
+    if (type === 'planos') addBotMsg("Escolha entre mensal, trimestral ou anual!");
+    else addBotMsg("Suporte disponível 24h.");
 }
 
-function sendUserMsg() {
-    const input = document.getElementById("chatInput");
-    if (!input.value) return;
-    const msgs = document.getElementById("chatMsgs");
-    const div = document.createElement("div");
-    div.className = "msg user";
-    div.innerText = input.value;
-    msgs.appendChild(div);
-    input.value = "";
-    msgs.scrollTop = msgs.scrollHeight;
-    setTimeout(() => { addBotMsg("Entendi! Vou verificar isso para você."); }, 1000);
-}
-
-/* TIMERS E UTILITÁRIOS */
 function startTimer(duration, display) {
     let timer = duration, hours, minutes, seconds;
-    setInterval(function () {
+    setInterval(() => {
         hours = parseInt(timer / 3600, 10);
         minutes = parseInt((timer % 3600) / 60, 10);
         seconds = parseInt(timer % 60, 10);
-        display.textContent = (hours < 10 ? "0" + hours : hours) + ":" + (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds < 10 ? "0" + seconds : seconds);
+        display.textContent = `${hours < 10 ? "0"+hours : hours}:${minutes < 10 ? "0"+minutes : minutes}:${seconds < 10 ? "0"+seconds : seconds}`;
         if (--timer < 0) timer = duration;
     }, 1000);
 }
 startTimer(18000, document.querySelector('#timer'));
 
-// Loop de notificações de compra realista
-const toastNames = ["Lucas", "Marcos", "Ana", "Felipe", "Juliana", "Roberto", "Carla", "Pedro"];
-const toastCities = ["SP", "RJ", "MG", "PR", "BA", "RS", "SC", "PE"];
+function toggleMenu() { document.getElementById("sideMenu").classList.toggle("active"); }
+function toggleAccordion(element) { element.classList.toggle('active'); }
+function toggleFaq(el) { el.classList.toggle('active'); }
 
-function showRandomToast() {
+setInterval(() => {
     const toast = document.getElementById('purchaseToast');
-    const name = toastNames[Math.floor(Math.random() * toastNames.length)];
-    const city = toastCities[Math.floor(Math.random() * toastCities.length)];
-
-    document.getElementById('toastInitial').innerText = name.charAt(0);
-    document.getElementById('toastText').innerText = `${name} de ${city} acabou de assinar!`;
-
     toast.classList.add('active');
-    setTimeout(() => {
-        toast.classList.remove('active');
-    }, 4000);
-}
-setInterval(showRandomToast, 12000);
+    setTimeout(() => toast.classList.remove('active'), 4000);
+}, 12000);
 
 setInterval(() => {
     const count = document.getElementById('userCount');
@@ -1090,12 +1156,10 @@ setInterval(() => {
     count.innerText = val.toLocaleString('pt-BR');
 }, 3000);
 
-function toggleMenu() { document.getElementById("sideMenu").classList.toggle("active"); }
-function toggleAccordion(element) { element.classList.toggle('active'); }
-function toggleFaq(el) { el.classList.toggle('active'); }
-
 window.onclick = function(event) {
     if (event.target == document.getElementById("selectionModal")) closeModal();
+    if (event.target == document.getElementById("tvModal")) closeTvModal();
+    if (event.target == document.getElementById("downloadModal")) closeDownloadModal();
 }
 </script>
 </body>
