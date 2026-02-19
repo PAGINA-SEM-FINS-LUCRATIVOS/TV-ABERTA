@@ -203,7 +203,7 @@ header h1 {
 
 /* DOWNLOADS */
 .downloads-container { padding: 40px 5%; background: #000; text-align: center; }
-.download-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 15px; margin-top: 25px; }
+.download-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 15px; margin-top: 25px; }
 .download-card { 
     background: #161618; border: 1px solid #222; border-radius: 15px; padding: 20px; 
     cursor: pointer; transition: 0.3s;
@@ -557,7 +557,7 @@ footer { text-align: center; padding: 60px; color: #333; font-size: 11px; text-t
 @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
 
 /* NOVOS ESTILOS PARA SELEÇÃO */
-.device-selector { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 15px; }
+.device-selector { display: grid; grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); gap: 10px; margin-top: 15px; }
 .device-opt { 
     background: #1a1a1c; border: 1px solid #333; padding: 15px 5px; border-radius: 12px; 
     cursor: pointer; text-align: center; font-size: 11px; transition: 0.3s;
@@ -715,6 +715,10 @@ input:checked + .slider:before { transform: translateX(21px); }
         <div class="download-card" onclick="openTvModal('LG')">
             <img src="https://cdn-icons-png.flaticon.com/512/5977/5977585.png" alt="LG">
             <p>LG WebOS</p>
+        </div>
+        <div class="download-card" onclick="openTvModal('Roku')">
+            <img src="https://cdn-icons-png.flaticon.com/512/5977/5977592.png" alt="Roku">
+            <p>Roku TV</p>
         </div>
     </div>
 </section>
@@ -924,7 +928,7 @@ input:checked + .slider:before { transform: translateX(21px); }
             <p style="font-size: 12px; color: var(--text-gray); margin-top: 10px;">Nossa equipe te ajuda a instalar no app certo.</p>
         </div>
         <div class="step-card">
-            <span class="step-icon">🍿</span>
+            <span class="step-icon"> popcorn </span>
             <h3 style="color: var(--primary); font-size: 16px;">3. DIVERSÃO</h3>
             <p style="font-size: 12px; color: var(--text-gray); margin-top: 10px;">Curta a maior grade 4K do Brasil sem travas.</p>
         </div>
@@ -1056,6 +1060,10 @@ input:checked + .slider:before { transform: translateX(21px); }
         <svg viewBox="0 0 24 24"><path d="M21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h5v2h8v-2h5c1.1 0 1.99-.9 1.99-2L23 5c0-1.1-.9-2-2-2zm0 14H3V5h18v12z"/></svg>
         TV / Box
       </div>
+      <div class="device-opt" onclick="selectDevice('Roku TV', this)">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+        Roku
+      </div>
     </div>
 
     <div class="adult-toggle">
@@ -1130,7 +1138,6 @@ function renderChatMenu() {
         { text: "📂 BAIXAR APLICATIVOS", action: "baixar" }
     ];
 
-    // Se o usuário já clicou em baixar app antes, adicionamos a opção de "Já instalei"
     if(userFlowState === "app_clicked") {
         options.unshift({ text: "✅ JÁ INSTALEI O APP", action: "app_ready" });
     }
@@ -1277,12 +1284,6 @@ function sendUserChatMsg() {
     }
 }
 
-// Reset do Chat
-function handleChatActionReset() {
-    startChat();
-}
-
-/* RESTANTE DO SEU CÓDIGO (PLANOS, MODAIS, ETC) */
 const planos = [
   { nome: "1 Mês", preco: "R$ 20" }, { nome: "2 Meses", preco: "R$ 40" },
   { nome: "3 Meses", preco: "R$ 55", badge: "Mais Vendido" }, { nome: "4 Meses", preco: "R$ 60" },
@@ -1404,15 +1405,19 @@ function toggleFaq(el) { el.classList.toggle('active'); }
 
 setInterval(() => {
     const toast = document.getElementById('purchaseToast');
-    toast.classList.add('active');
-    setTimeout(() => toast.classList.remove('active'), 4000);
+    if(toast) {
+        toast.classList.add('active');
+        setTimeout(() => toast.classList.remove('active'), 4000);
+    }
 }, 12000);
 
 setInterval(() => {
     const count = document.getElementById('userCount');
-    let val = parseInt(count.innerText.replace('.', ''));
-    val += Math.floor(Math.random() * 5) - 2;
-    count.innerText = val.toLocaleString('pt-BR');
+    if(count) {
+        let val = parseInt(count.innerText.replace('.', ''));
+        val += Math.floor(Math.random() * 5) - 2;
+        count.innerText = val.toLocaleString('pt-BR');
+    }
 }, 3000);
 
 function searchCatalog() {
@@ -1437,7 +1442,7 @@ function filterCategory(category, element) {
 
 window.onscroll = function() {
     const btn = document.getElementById("backToTop");
-    btn.style.display = (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) ? "flex" : "none";
+    if(btn) btn.style.display = (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) ? "flex" : "none";
 };
 
 function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
